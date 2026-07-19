@@ -3,15 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSE Formation</title>
-    <!-- Chargement automatique du style et de la logique -->
-    <link rel="stylesheet" href="https://jsdelivr.net" onerror="this.href='style.css'">
+    <title>HSE Plateforme</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: #f1f5f9; display: flex; justify-content: center; padding: 15px; }
+        .mobile-container { width: 100%; max-width: 400px; background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-height: 520px; }
+        .page { display: none; text-align: center; }
+        .page.active { display: block; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 8px; }
+        .btn { width: 100%; background: #10b981; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .btn-mod { display: flex; justify-content: space-between; background: #64748b; color: white; margin-bottom: 10px; padding: 14px; border: none; border-radius: 8px; width: 100%; font-weight: bold; }
+        .btn-opt { width: 100%; text-align: left; padding: 10px; margin-bottom: 8px; border: 1px solid #cbd5e1; border-radius: 8px; background: white; }
+        #courseContent { text-align: left; background: #f8fafc; padding: 10px; border-radius: 8px; max-height: 250px; overflow-y: auto; font-size: 14px; margin-bottom: 15px; }
+    </style>
 </head>
 <body>
-    <div id="app">Chargement de la plateforme HSE...</div>
-    
-    <!-- Scripts distants sécurisés -->
-    <script src="https://jsdelivr.net"></script>
-    <script src="https://jsdelivr.net"></script>
+    <div class="mobile-container">
+        <div id="loginPage" class="page active">
+            <h2>🔒 Connexion</h2><br>
+            <form onsubmit="validerConnexion(event)">
+                <input type="text" id="studentName" placeholder="Nom" required>
+                <input type="email" id="studentEmail" placeholder="Email" required>
+                <button type="submit" class="btn">Entrer</button>
+            </form>
+        </div>
+        <div id="homePage" class="page">
+            <h3 id="userWelcome">Bienvenue</h3><br>
+            <div id="modulesContainer"></div>
+        </div>
+        <div id="coursePage" class="page">
+            <h3 id="courseTitle">Cours</h3><br>
+            <div id="courseContent"></div>
+            <button onclick="lancerTest()" class="btn" style="background:#007bff;">Passer le Test (20 Q)</button>
+        </div>
+        <div id="quizPage" class="page">
+            <h3 id="quizProgress">Question</h3><br>
+            <p id="questionText" style="text-align:left; font-weight:bold; margin-bottom:15px;"></p>
+            <div id="optionsContainer"></div>
+        </div>
+        <div id="resultPage" class="page">
+            <h3>Résultat</h3><br>
+            <p id="scoreDisplay" style="font-size:16px; margin-bottom:20px;"></p>
+            <button onclick="changerPage('homePage')" class="btn">Retour</button>
+        </div>
+    </div>
+
+    <script>
+        const modules = [
+            { id: "hauteur", name: "Travaux en Hauteur", icon: "🏗️" },
+            { id: "electricite", name: "Habilitation Électrique", icon: "⚡" },
+            { id: "incendie", name: "Lutte contre l'Incendie", icon: "🧯" },
+            { id: "sauvetage", name: "Corde & Sauvetage", icon: "🧗" },
+            { id: "mat", name: "Assemblage au Mât", icon: "🔧" },
+            { id: "elingage", name: "Élingage", icon: "🪝" },
+            { id: "conduite", name: "Conduite Défensive", icon: "🚗" },
+            { id: "machines", name: "Opérateur de Machines", icon: "⚙️" }
+        ];
+
+        const coursParModule = {
+            "hauteur": "<h4>1. Règle des 2m</h4><p>Le harnais est obligatoire dès 2m de hauteur sans protection collective.</p><h4>2. Les Équipements</h4><p>La longe avec absorbeur de choc limite l'impact sur le corps à moins de 6 kN.</p>",
+            "elingage": "<h4>1. La CMU</h4><p>La Charge Maximale d'Utilisation est gravée sur la plaque. Interdit de la dépasser.</p><h4>2. Les Angles</h4><p>Plus l'angle des brins est ouvert à l'horizontale, plus la tension augmente.</p>"
+        };
+
+        const questionsSources = {
+            "hauteur": [
+                { q: "À partir de quelle hauteur le harnais est-il obligatoire ?", o: ["1 mètre", "2 mètres", "5 mètres"], r: 1 },
+                { q: "Que vérifie-t-on sur un absorbeur d'énergie ?", o: ["La couleur", "L'absence de déchirure", "La marque"], r: 1 },
+                { q: "Quel élément relie le harnais à l'ancrage ?", o: ["La longe", "La sangle", "La boucle"], r: 0 }
+            ],
+            "elingage": [
+                { q: "Que vérifie-t-on en priorité sur une élingue ?", o: ["La date", "La Charge Maximale (CMU)", "Le fabricant"], r: 1 },
+                { q: "Quel angle engendre la plus forte tension ?", o: ["Angle horizontal", "Angle vertical", "Aucun impact"], r: 0 },
+                { q: "Peut-on circuler sous une charge suspendue ?", o: ["Oui avec casque", "Si elle est stable", "Jamais (Interdit)"], r: 2 }
+            ]
+        };
+
+        const questionsParModule = {};
+        modules.forEach(mod => {
+            const src = questionsSources[mod.id] || [{ q: `Règle de sécurité principale pour le module ${mod.name} ?`, o: ["Éviter le danger à la source", "Travailler vite", "Ne rien faire"], r: 0 }];
+            let liste = [];
+            for (let i = 0; i < 20; i++) {
+                let qBase = src[i % src.length];
+                liste.push({ q: `[Q${i + 1}] ${qBase.q}`, o: qBase.o, r: qBase.r });
+            }
+            questionsParModule[mod.id] = liste;
+        });
+        let idxQ = 0, reponses = [], modSelect = null, listQ = [], etudiant = { nom: "", email: "" }, payes = {};
+
+        function changerPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function validerConnexion(event) {
+            if (event) event.preventDefault();
+            etudiant.nom = document.getElementById('studentName').value.trim();
+            etudiant.email = document.getElementById('studentEmail').value.trim();
+            document.getElementById('userWelcome').innerText = `👋 Bonjour, ${etudiant.nom}`;
+            chargerModules();
+            changerPage('homePage');
+        }
+
+        function chargerModules() {
+            const container = document.getElementById('modulesContainer');
+            container.innerHTML = "";
+            modules.forEach(mod => {
+                const btn = document.createElement('button');
+                const ok = payes[mod.id] || false;
+                btn.className = "btn-mod";
+                btn.style.background = ok ? "#007bff" : "#64748b";
+                btn.onclick = () => clicModule(mod);
+                btn.innerHTML = `<span>${ok ? mod.icon : "🔒"} ${mod.name}</span><span>${ok ? "Acheté" : "20K"}</span>`;
+                container.appendChild(btn);
+            });
+        }
+
+        function clicModule(mod) {
+            modSelect = mod;
+            if (payes[mod.id]) {
+                ouvrirCours(mod);
+            } else {
+                const code = prompt(`Débloquer le module "${mod.name}" (20 000 FCFA)\nFaites le dépôt au +225 07 XX XX XX XX puis entrez le code secret reçu : \n(Code test: HSE2026)`);
+                if (code === "HSE2026") {
+                    payes[mod.id] = true;
+                    alert("Module débloqué !");
+                    chargerModules();
+                    ouvrirCours(mod);
+                } else if (code !== null) {
+                    alert("Code invalide.");
+                }
+            }
+        }
+
+        function ouvrirCours(mod) {
+            document.getElementById('courseTitle').innerText = mod.name;
+            document.getElementById('courseContent').innerHTML = coursParModule[mod.id] || "<h4>Cours bientôt disponible</h4><p>Le support de formation est en cours d'écriture.</p>";
+            changerPage('coursePage');
+        }
+
+        function lancerTest() {
+            listQ = questionsParModule[modSelect.id] || [];
+            idxQ = 0; reponses = [];
+            afficherQuestion();
+            changerPage('quizPage');
+        }
+
+        function afficherQuestion() {
+            const data = listQ[idxQ];
+            document.getElementById('quizProgress').innerText = `Question ${idxQ + 1} / ${listQ.length}`;
+            document.getElementById('questionText').innerText = data.q;
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = "";
+            data.o.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "btn-opt";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    reponses[idxQ] = idx;
+                    if (idxQ < listQ.length - 1) { idxQ++; afficherQuestion(); } else { bilan(); }
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function bilan() {
+            let note = 0;
+            listQ.forEach((q, i) => { if (reponses[i] === q.r) note++; });
+            const gagne = note >= 10;
+            document.getElementById('scoreDisplay').innerHTML = `Note : <strong>${note}/${listQ.length}</strong><br><br>${gagne ? "🎉 Félicitations, vous avez validé !" : "❌ Échec, révisez le cours et réessayez."}`;
+            changerPage('resultPage');
+        }
+    </script>
 </body>
 </html>
