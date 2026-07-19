@@ -1,3 +1,43 @@
+const modules = [
+    { id: "hauteur", name: "Travaux en Hauteur", icon: "🏗️" },
+    { id: "electricite", name: "Habilitation Électrique", icon: "⚡" },
+    { id: "incendie", name: "Lutte contre l'Incendie", icon: "🧯" },
+    { id: "sauvetage", name: "Corde & Sauvetage", icon: "🧗" },
+    { id: "mat", name: "Assemblage au Mât", icon: "🔧" },
+    { id: "elingage", name: "Élingage", icon: "🪝" },
+    { id: "conduite", name: "Conduite Défensive", icon: "🚗" },
+    { id: "machines", name: "Opérateur de Machines", icon: "⚙️" }
+];
+
+const coursParModule = {
+    "hauteur": "<h4>1. Règle des 2m</h4><p>Le harnais est obligatoire dès 2m de hauteur sans protection collective.</p><h4>2. Les Équipements</h4><p>La longe avec absorbeur de choc limite l'impact sur le corps à moins de 6 kN.</p>",
+    "elingage": "<h4>1. La CMU</h4><p>La Charge Maximale d'Utilisation est gravée sur la plaque. Interdit de la dépasser.</p><h4>2. Les Angles</h4><p>Plus l'angle des brins est ouvert à l'horizontale, plus la tension augmente.</p>"
+};
+
+const questionsSources = {
+    "hauteur": [
+        { q: "À partir de quelle hauteur le harnais est-il obligatoire ?", o: ["1 mètre", "2 mètres", "5 mètres"], r: 1 },
+        { q: "Que vérifie-t-on sur un absorbeur d'énergie ?", o: ["La couleur", "L'absence de déchirure", "La marque"], r: 1 },
+        { q: "Quel élément relie le harnais à l'ancrage ?", o: ["La longe", "La sangle", "La boucle"], r: 0 }
+    ],
+    "elingage": [
+        { q: "Que vérifie-t-on en priorité sur une élingue ?", o: ["La date", "La Charge Maximale (CMU)", "Le fabricant"], r: 1 },
+        { q: "Quel angle engendre la plus forte tension ?", o: ["Angle horizontal", "Angle vertical", "Aucun impact"], r: 0 },
+        { q: "Peut-on circuler sous une charge suspendue ?", o: ["Oui avec casque", "Si elle est stable", "Jamais (Interdit)"], r: 2 }
+    ]
+};
+
+const questionsParModule = {};
+modules.forEach(mod => {
+    const src = questionsSources[mod.id] || [{ q: `Règle de sécurité pour ${mod.name} ?`, o: ["Éliminer le danger", "Courir", "Attendre"], r: 0 }];
+    let liste = [];
+    for (let i = 0; i < 20; i++) {
+        let qBase = src[i % src.length];
+        liste.push({ q: `[Q${i + 1}] ${qBase.q}`, o: qBase.o, r: qBase.r });
+    }
+    questionsParModule[mod.id] = liste;
+});
+
 let idxQ = 0, reponses = [], modSelect = null, listQ = [], etudiant = { nom: "", email: "" }, payes = {};
 
 function changerPage(id) {
@@ -5,7 +45,6 @@ function changerPage(id) {
     document.getElementById(id).classList.add('active');
 }
 
-// Correction ici : la fonction accepte "event" ou "e" sans bloquer
 function validerConnexion(event) {
     if (event) event.preventDefault();
     etudiant.nom = document.getElementById('studentName').value.trim();
@@ -17,7 +56,6 @@ function validerConnexion(event) {
 
 function chargerModules() {
     const container = document.getElementById('modulesContainer');
-    if (!container) return;
     container.innerHTML = "";
     modules.forEach(mod => {
         const btn = document.createElement('button');
