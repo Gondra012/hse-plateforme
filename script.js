@@ -4,7 +4,9 @@ let moduleSelectionne = null;
 let questionsDuQuiz = [];
 let etudiantConnecte = { nom: "", email: "" };
 
-// Gérer la soumission du formulaire d'identification
+// On simule une liste de modules débloqués (par défaut aucun n'est payé)
+let modulesPayes = {};
+
 function validerConnexion(event) {
     event.preventDefault();
     const nom = document.getElementById('studentName').value.trim();
@@ -23,38 +25,70 @@ function chargerModules() {
     const container = document.getElementById('modulesContainer');
     if (!container) return;
     container.innerHTML = "";
+    
     modules.forEach(mod => {
         const btn = document.createElement('button');
-        btn.className = "module-btn";
-        btn.onclick = () => lancerQuiz(mod);
+        const estPaye = modulesPayes[mod.id] || false;
+        
+        btn.className = estPaye ? "module-btn" : "module-btn locked";
+        btn.onclick = () => tenterAccesModule(mod);
+        
         btn.innerHTML = `
-            <div class="module-content"><span>${mod.icon}</span> ${mod.name}</div>
-            <div class="price-badge">20K</div>
+            <div class="module-content">
+                <span>${estPaye ? mod.icon : "🔒"}</span> ${mod.name}
+            </div>
+            <div class="price-badge">${estPaye ? "Débloqué" : "20K"}</div>
         `;
         container.appendChild(btn);
     });
 }
 
-function changerPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+function tenterAccesModule(mod) {
+    moduleSelectionne = mod;
+    if (modulesPayes[mod.id]) {
+        lancerQuiz(mod);
+    } else {
+        document.getElementById('paymentTargetModule').innerText = mod.name + " - 20 000 FCFA";
+        document.getElementById('unlockCodeInput').value = "";
+        document.getElementById('paymentModal').classList.add('active');
+    }
+}
+
+function fermerPaiement() {
+    document.getElementById('paymentModal').classList.remove('active');
+}
+
+function verifierCodePaiement() {
+    const codeSaisi = document.getElementById('unlockCodeInput').value.trim();
+    
+    // CODE UNIVERSEL POUR VOS TESTS : HSE2026
+    if (codeSaisi === "HSE2026") {
+        modulesPayes[moduleSelectionne.id] = true;
+        fermerPaiement();
+        alert("Félicitations ! Le module est maintenant débloqué.");
+        chargerModules(); // Rafraîchit les boutons
+        lancerQuiz(moduleSelectionne);
+    } else {
+        alert("Code de déblocage invalide. Veuillez réessayer.");
+    }
 }
 
 function lancerQuiz(mod) {
-    moduleSelectionne = mod;
-    // On charge STRICTEMENT les questions du module cliqué
     questionsDuQuiz = questionsParModule[mod.id] || [];
-    
     if (questionsDuQuiz.length === 0) {
         alert("Ce module n'a pas encore de questions configurées.");
         return;
     }
-    
     indexQuestionCourante = 0;
     reponsesUtilisateur = [];
     document.getElementById('currentModuleTitle').innerText = mod.name;
     afficherQuestion();
     changerPage('quizPage');
+}
+
+function changerPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
 }
 
 function afficherQuestion() {

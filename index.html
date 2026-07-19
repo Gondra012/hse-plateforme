@@ -9,7 +9,7 @@
 <body>
     <div class="mobile-container">
         
-        <!-- ================= PAGE CONNEXION / IDENTIFICATION ================= -->
+        <!-- PAGE CONNEXION -->
         <div id="loginPage" class="page active">
             <div class="header">
                 <span>🏗️</span>
@@ -29,7 +29,7 @@
             </form>
         </div>
 
-        <!-- ================= PAGE ACCUEIL / MODULES ================= -->
+        <!-- PAGE ACCUEIL / MODULES -->
         <div id="homePage" class="page">
             <div class="header">
                 <span id="userWelcome">👋 Bienvenue</span>
@@ -39,7 +39,27 @@
             <div class="modules-list" id="modulesContainer"></div>
         </div>
 
-        <!-- ================= PAGE QUESTIONNAIRE ================= -->
+        <!-- FENÊTRE POP-UP DE PAIEMENT (MODAL) -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h3>💳 Débloquer le Module</h3>
+                <p id="paymentTargetModule" style="font-weight: bold; margin: 8px 0; color: #007bff;"></p>
+                <p style="font-size: 13px; color: #475569; margin-bottom: 15px;">
+                    Pour accéder à ce module et à son test de 20 questions, veuillez effectuer un dépôt de <strong>20 000 FCFA</strong> via Orange Money, Wave ou MTN au numéro suivant : <br><br>
+                    <span style="font-size: 16px; color: #0f172a; background: #e2e8f0; padding: 4px 8px; border-radius: 6px; font-weight: bold;">+225 07 XX XX XX XX</span>
+                </p>
+                <div class="input-group">
+                    <label>Entrez le code de déblocage reçu par SMS :</label>
+                    <input type="text" id="unlockCodeInput" placeholder="Code (Ex de test: HSE2026)">
+                </div>
+                <div class="nav-actions" style="margin-top: 15px;">
+                    <button class="action-btn btn-secondary" onclick="fermerPaiement()">Annuler</button>
+                    <button class="action-btn btn-primary" onclick="verifierCodePaiement()">Valider le paiement</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE QUESTIONNAIRE -->
         <div id="quizPage" class="page">
             <div class="quiz-header">
                 <div class="quiz-title" id="currentModuleTitle">Module</div>
@@ -53,7 +73,7 @@
             </div>
         </div>
 
-        <!-- ================= PAGE RÉSULTATS ================= -->
+        <!-- PAGE RÉSULTATS -->
         <div id="resultPage" class="page">
             <div class="header">
                 <h1>Résultat du Test</h1>
