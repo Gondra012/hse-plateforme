@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSE Formation Plateforme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- ACCUEIL -->
+        <div id="homePage" class="page active">
+            <div class="header">
+                <span>🏗️</span>
+                <h1>HSE Formation<br>Plateforme</h1>
+            </div>
+            <div class="subtitle">📚 Sélectionnez un Module</div>
+            <div class="modules-list" id="modulesContainer"></div>
+        </div>
+
+        <!-- QUESTIONNAIRE -->
+        <div id="quizPage" class="page">
+            <div class="quiz-header">
+                <div class="quiz-title" id="currentModuleTitle">Module</div>
+                <div class="progress-bar" id="quizProgress">Question 1 sur 20</div>
+            </div>
+            <div class="question-text" id="questionText">Chargement...</div>
+            <div class="options-list" id="optionsContainer"></div>
+            <div class="nav-actions">
+                <button class="action-btn btn-secondary" onclick="quitterQuiz()">Quitter</button>
+                <button class="action-btn btn-primary" id="nextBtn" onclick="questionSuivante()" disabled>Suivant</button>
+            </div>
+        </div>
+
+        <!-- RÉSULTATS -->
+        <div id="resultPage" class="page">
+            <div class="header">
+                <h1>Résultat du Test</h1>
+            </div>
+            <div class="result-card">
+                <div id="scoreDisplay" class="score-circle">0/20</div>
+                <div class="result-text" id="resultMessage">Résultat</div>
+                <button class="action-btn btn-primary" style="width: 100%;" onclick="retourAccueil()">Retour aux Modules</button>
+            </div>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

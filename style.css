@@ -1,0 +1,29 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #f1f5f9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 15px; }
+.mobile-container { width: 100%; max-width: 420px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 20px; min-height: 600px; display: flex; flex-direction: column; }
+.page { display: none; width: 100%; }
+.page.active { display: flex; flex-direction: column; }
+.header { text-align: center; margin-bottom: 20px; margin-top: 10px; }
+.header h1 { font-size: 22px; color: #0f172a; font-weight: 700; margin-top: 5px; }
+.subtitle { font-size: 14px; color: #64748b; font-weight: 600; text-align: center; margin-bottom: 15px; }
+.modules-list { display: flex; flex-direction: column; gap: 10px; }
+.module-btn { width: 100%; background-color: #007bff; color: white; border: none; border-radius: 12px; padding: 14px 16px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.module-btn:active { transform: scale(0.99); background-color: #0056b3; }
+.module-content { display: flex; align-items: center; gap: 10px; }
+.price-badge { background-color: rgba(255, 255, 255, 0.25); padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+.quiz-header { border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 15px; }
+.quiz-title { font-size: 16px; color: #334155; font-weight: 700; }
+.progress-bar { font-size: 12px; color: #64748b; margin-top: 4px; }
+.question-text { font-size: 16px; color: #0f172a; font-weight: 600; margin-bottom: 15px; line-height: 1.4; }
+.options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.option-btn { width: 100%; text-align: left; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 10px; background: white; font-size: 14px; cursor: pointer; color: #334155; }
+.option-btn.selected { border-color: #007bff; background-color: #eff6ff; color: #007bff; }
+.nav-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: auto; }
+.action-btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.btn-secondary { background: #e2e8f0; color: #475569; }
+.btn-primary { background: #10b981; color: white; }
+.btn-primary:disabled { background: #cbd5e1; cursor: not-allowed; }
+.result-card { text-align: center; padding: 30px 10px; }
+.score-circle { width: 100px; height: 100px; background: #f0fdf4; border: 4px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: #10b981; margin: 0 auto 20px; }
+.score-circle.fail { background: #fef2f2; border-color: #ef4444; color: #ef4444; }
+.result-text { font-size: 15px; color: #475569; margin-bottom: 25px; line-height: 1.4; }
