@@ -3,90 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSE Formation Plateforme</title>
+    <title>HSE Formation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="mobile-container">
-        
-        <!-- PAGE CONNEXION -->
+        <!-- 1. CONNEXION -->
         <div id="loginPage" class="page active">
-            <div class="header">
-                <span>🏗️</span>
-                <h1>HSE Formation<br>Plateforme</h1>
-            </div>
-            <div class="subtitle">🔒 Identification Étudiant</div>
-            <form id="loginForm" onsubmit="validerConnexion(event)">
-                <div class="input-group">
-                    <label for="studentName">Nom complet</label>
-                    <input type="text" id="studentName" required placeholder="Ex: Jean Paul">
-                </div>
-                <div class="input-group">
-                    <label for="studentEmail">Adresse Email</label>
-                    <input type="email" id="studentEmail" required placeholder="Ex: jean@mail.com">
-                </div>
-                <button type="submit" class="action-btn btn-primary" style="width: 100%; margin-top: 10px;">Accéder aux Formations</button>
+            <h2>🔒 Connexion</h2>
+            <form onsubmit="validerConnexion(event)">
+                <input type="text" id="studentName" placeholder="Nom" required><br><br>
+                <input type="email" id="studentEmail" placeholder="Email" required><br><br>
+                <button type="submit" class="btn">Entrer</button>
             </form>
         </div>
-
-        <!-- PAGE ACCUEIL / MODULES -->
+        <!-- 2. ACCUEIL -->
         <div id="homePage" class="page">
-            <div class="header">
-                <span id="userWelcome">👋 Bienvenue</span>
-                <h1>Modules de Formation</h1>
-            </div>
-            <div class="subtitle">📚 Sélectionnez un Module (20 000 FCFA)</div>
-            <div class="modules-list" id="modulesContainer"></div>
+            <h3 id="userWelcome">Bienvenue</h3>
+            <div id="modulesContainer"></div>
         </div>
-
-        <!-- FENÊTRE POP-UP DE PAIEMENT (MODAL) -->
-        <div id="paymentModal" class="modal">
-            <div class="modal-content">
-                <h3>💳 Débloquer le Module</h3>
-                <p id="paymentTargetModule" style="font-weight: bold; margin: 8px 0; color: #007bff;"></p>
-                <p style="font-size: 13px; color: #475569; margin-bottom: 15px;">
-                    Pour accéder à ce module et à son test de 20 questions, veuillez effectuer un dépôt de <strong>20 000 FCFA</strong> via Orange Money, Wave ou MTN au numéro suivant : <br><br>
-                    <span style="font-size: 16px; color: #0f172a; background: #e2e8f0; padding: 4px 8px; border-radius: 6px; font-weight: bold;">+225 07 XX XX XX XX</span>
-                </p>
-                <div class="input-group">
-                    <label>Entrez le code de déblocage reçu par SMS :</label>
-                    <input type="text" id="unlockCodeInput" placeholder="Code (Ex de test: HSE2026)">
-                </div>
-                <div class="nav-actions" style="margin-top: 15px;">
-                    <button class="action-btn btn-secondary" onclick="fermerPaiement()">Annuler</button>
-                    <button class="action-btn btn-primary" onclick="verifierCodePaiement()">Valider le paiement</button>
-                </div>
-            </div>
+        <!-- 3. COURS -->
+        <div id="coursePage" class="page">
+            <h3 id="courseTitle">Cours</h3>
+            <div id="courseContent"></div><br>
+            <button onclick="lancerTest()" class="btn">Passer le Test (20 Q)</button>
         </div>
-
-        <!-- PAGE QUESTIONNAIRE -->
+        <!-- 4. QUIZ -->
         <div id="quizPage" class="page">
-            <div class="quiz-header">
-                <div class="quiz-title" id="currentModuleTitle">Module</div>
-                <div class="progress-bar" id="quizProgress">Question 1 sur 20</div>
-            </div>
-            <div class="question-text" id="questionText">Chargement...</div>
-            <div class="options-list" id="optionsContainer"></div>
-            <div class="nav-actions">
-                <button class="action-btn btn-secondary" onclick="quitterQuiz()">Quitter</button>
-                <button class="action-btn btn-primary" id="nextBtn" onclick="questionSuivante()" disabled>Suivant</button>
-            </div>
+            <h3 id="quizProgress">Question</h3>
+            <p id="questionText">Chargement...</p>
+            <div id="optionsContainer"></div>
         </div>
-
-        <!-- PAGE RÉSULTATS -->
+        <!-- 5. RÉSULTAT -->
         <div id="resultPage" class="page">
-            <div class="header">
-                <h1>Résultat du Test</h1>
-            </div>
-            <div class="result-card">
-                <div id="scoreDisplay" class="score-circle">0/20</div>
-                <div class="result-text" id="resultMessage">Résultat</div>
-                <button class="action-btn btn-primary" style="width: 100%;" onclick="retourAccueil()">Retour aux Modules</button>
-            </div>
+            <h3>Résultat</h3>
+            <p id="scoreDisplay"></p>
+            <button onclick="changerPage('homePage')" class="btn">Retour</button>
         </div>
     </div>
-
-    <!-- Chargement propre des scripts JavaScript -->
     <script src="questions.js"></script>
     <script src="script.js"></script>
 </body>
