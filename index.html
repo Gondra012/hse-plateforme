@@ -4,43 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSE Formation</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Chargement automatique du style et de la logique -->
+    <link rel="stylesheet" href="https://jsdelivr.net" onerror="this.href='style.css'">
 </head>
 <body>
-    <div class="mobile-container">
-        <!-- 1. CONNEXION -->
-        <div id="loginPage" class="page active">
-            <h2>🔒 Connexion</h2>
-            <form onsubmit="validerConnexion(event)">
-                <input type="text" id="studentName" placeholder="Nom" required><br><br>
-                <input type="email" id="studentEmail" placeholder="Email" required><br><br>
-                <button type="submit" class="btn">Entrer</button>
-            </form>
-        </div>
-        <!-- 2. ACCUEIL -->
-        <div id="homePage" class="page">
-            <h3 id="userWelcome">Bienvenue</h3>
-            <div id="modulesContainer"></div>
-        </div>
-        <!-- 3. COURS -->
-        <div id="coursePage" class="page">
-            <h3 id="courseTitle">Cours</h3>
-            <div id="courseContent"></div><br>
-            <button onclick="lancerTest()" class="btn">Passer le Test (20 Q)</button>
-        </div>
-        <!-- 4. QUIZ -->
-        <div id="quizPage" class="page">
-            <h3 id="quizProgress">Question</h3>
-            <p id="questionText">Chargement...</p>
-            <div id="optionsContainer"></div>
-        </div>
-        <!-- 5. RÉSULTAT -->
-        <div id="resultPage" class="page">
-            <h3>Résultat</h3>
-            <p id="scoreDisplay"></p>
-            <button onclick="changerPage('homePage')" class="btn">Retour</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <div id="app">Chargement de la plateforme HSE...</div>
+    
+    <!-- Scripts distants sécurisés -->
+    <script src="https://jsdelivr.net"></script>
+    <script src="https://jsdelivr.net"></script>
 </body>
 </html>
