@@ -5,8 +5,9 @@ function changerPage(id) {
     document.getElementById(id).classList.add('active');
 }
 
-function validerConnexion(e) {
-    e.preventDefault();
+// Correction ici : la fonction accepte "event" ou "e" sans bloquer
+function validerConnexion(event) {
+    if (event) event.preventDefault();
     etudiant.nom = document.getElementById('studentName').value.trim();
     etudiant.email = document.getElementById('studentEmail').value.trim();
     document.getElementById('userWelcome').innerText = `👋 Bonjour, ${etudiant.nom}`;
@@ -16,6 +17,7 @@ function validerConnexion(e) {
 
 function chargerModules() {
     const container = document.getElementById('modulesContainer');
+    if (!container) return;
     container.innerHTML = "";
     modules.forEach(mod => {
         const btn = document.createElement('button');
