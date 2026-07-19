@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Le script JS est correctement chargé !');
+    alert('Bienvenue sur HSE Plateforme !');
+});
 const modules = [
     { id: "hauteur", name: "Travaux en Hauteur", icon: "🏗️" },
     { id: "electricite", name: "Habilitation Électrique", icon: "⚡" },
