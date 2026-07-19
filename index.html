@@ -8,17 +8,38 @@
 </head>
 <body>
     <div class="mobile-container">
-        <!-- ACCUEIL -->
-        <div id="homePage" class="page active">
+        
+        <!-- ================= PAGE CONNEXION / IDENTIFICATION ================= -->
+        <div id="loginPage" class="page active">
             <div class="header">
                 <span>🏗️</span>
                 <h1>HSE Formation<br>Plateforme</h1>
             </div>
-            <div class="subtitle">📚 Sélectionnez un Module</div>
+            <div class="subtitle">🔒 Identification Étudiant</div>
+            <form id="loginForm" onsubmit="validerConnexion(event)">
+                <div class="input-group">
+                    <label for="studentName">Nom complet</label>
+                    <input type="text" id="studentName" required placeholder="Ex: Jean Paul">
+                </div>
+                <div class="input-group">
+                    <label for="studentEmail">Adresse Email</label>
+                    <input type="email" id="studentEmail" required placeholder="Ex: jean@mail.com">
+                </div>
+                <button type="submit" class="action-btn btn-primary" style="width: 100%; margin-top: 10px;">Accéder aux Formations</button>
+            </form>
+        </div>
+
+        <!-- ================= PAGE ACCUEIL / MODULES ================= -->
+        <div id="homePage" class="page">
+            <div class="header">
+                <span id="userWelcome">👋 Bienvenue</span>
+                <h1>Modules de Formation</h1>
+            </div>
+            <div class="subtitle">📚 Sélectionnez un Module (20 000 FCFA)</div>
             <div class="modules-list" id="modulesContainer"></div>
         </div>
 
-        <!-- QUESTIONNAIRE -->
+        <!-- ================= PAGE QUESTIONNAIRE ================= -->
         <div id="quizPage" class="page">
             <div class="quiz-header">
                 <div class="quiz-title" id="currentModuleTitle">Module</div>
@@ -32,7 +53,7 @@
             </div>
         </div>
 
-        <!-- RÉSULTATS -->
+        <!-- ================= PAGE RÉSULTATS ================= -->
         <div id="resultPage" class="page">
             <div class="header">
                 <h1>Résultat du Test</h1>

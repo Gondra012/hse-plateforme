@@ -6,6 +6,10 @@ body { background-color: #f1f5f9; display: flex; justify-content: center; align-
 .header { text-align: center; margin-bottom: 20px; margin-top: 10px; }
 .header h1 { font-size: 22px; color: #0f172a; font-weight: 700; margin-top: 5px; }
 .subtitle { font-size: 14px; color: #64748b; font-weight: 600; text-align: center; margin-bottom: 15px; }
+.input-group { width: 100%; margin-bottom: 15px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.input-group label { font-size: 13px; font-weight: 600; color: #475569; }
+.input-group input { width: 100%; padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 14px; outline: none; }
+.input-group input:focus { border-color: #007bff; }
 .modules-list { display: flex; flex-direction: column; gap: 10px; }
 .module-btn { width: 100%; background-color: #007bff; color: white; border: none; border-radius: 12px; padding: 14px 16px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
 .module-btn:active { transform: scale(0.99); background-color: #0056b3; }
@@ -19,7 +23,7 @@ body { background-color: #f1f5f9; display: flex; justify-content: center; align-
 .option-btn { width: 100%; text-align: left; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 10px; background: white; font-size: 14px; cursor: pointer; color: #334155; }
 .option-btn.selected { border-color: #007bff; background-color: #eff6ff; color: #007bff; }
 .nav-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: auto; }
-.action-btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.action-btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; }
 .btn-secondary { background: #e2e8f0; color: #475569; }
 .btn-primary { background: #10b981; color: white; }
 .btn-primary:disabled { background: #cbd5e1; cursor: not-allowed; }
