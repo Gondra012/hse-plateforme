@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSE Formation - Tago Dominique</title>
-    <!-- LIEN VERS LE FICHIER DESIGN -->
+    
+    <!-- Bibliothèque officielle pour générer les diplômes PDF -->
+    <script src="https://cloudflare.com"></script>
+    
+    <!-- Lien vers votre fichier de design existant -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,19 +27,27 @@
     <button onclick="connecterEtudiant()">Accéder aux Modules</button>
 </div>
 
-<!-- ÉCRAN 2 : TABLEAU DE BORD (MODULES & HISTORIQUE) -->
+<!-- ÉCRAN 2 : TABLEAU DE BORD (MODULES & BASE DE DONNÉES) -->
 <div id="ecran-modules" class="card" style="display: none;">
     <h2>📚 Tableau de Bord HSE</h2>
     <p id="bienvenue-msg" style="color: #4b5563; font-weight: bold; margin-bottom: 20px;"></p>
     
-    <div id="liste-modules-container"></div>
+    <div id="liste-modules-container">
+        <!-- Les boutons des 8 modules seront injectés ici par le fichier quiz.js -->
+    </div>
 
     <h3 style="margin-top: 30px; text-align: left; color: #475569;">📊 Historique BDD des Scores</h3>
     <table class="historique-table">
         <thead>
-            <tr><th>Module</th><th>Score</th><th>Pourcentage</th></tr>
+            <tr>
+                <th>Module</th>
+                <th>Score</th>
+                <th>Pourcentage</th>
+            </tr>
         </thead>
-        <tbody id="historique-bdd-corps"></tbody>
+        <tbody id="historique-bdd-corps">
+            <!-- Rempli dynamiquement par IndexedDB via quiz.js -->
+        </tbody>
     </table>
 </div>
 
@@ -47,7 +59,7 @@
     <button style="background-color: #64748b;" onclick="retourMenuPrincipal()">⬅️ Retour au Tableau de Bord</button>
 </div>
 
-<!-- ÉCRAN 4 : MODULE QUIZ INTERACTIF -->
+<!-- ÉCRAN 4 : MODULE QUIZ INTERACTIF À LA SOURIS -->
 <div id="ecran-quiz" class="card" style="display: none;">
     <h2 id="quiz-titre-module">Questionnaire</h2>
     <p id="quiz-progression" style="color: #64748b; font-weight: bold;"></p>
@@ -56,7 +68,7 @@
     <button id="btn-continuer-quiz" style="display: none; background-color: #3b82f6;" onclick="questionSuivante()">Question Suivante ➡️</button>
 </div>
 
-<!-- ÉCRAN 5 : RAPPORT DE CERTIFICATION -->
+<!-- ÉCRAN 5 : RAPPORT DE CERTIFICATION FINAL -->
 <div id="ecran-resultat" class="card" style="display: none;">
     <h2>🏆 Fin du Module</h2>
     <h3 id="resultat-module-titre"></h3>
@@ -65,13 +77,13 @@
         Pourcentage : <span id="pourcentage-final" style="font-weight: bold;"></span>
     </div>
     <div id="mention-certification" style="font-size: 18px; font-weight: bold; margin-bottom: 20px;"></div>
-    <button onclick="retourMenuPrincipal()">🔄 Retourner au Tableau de Bord</button>
+    
+    <!-- Bouton PDF ajouté proprement pour le téléchargement -->
+    <button id="btn-telecharger-pdf" style="background-color: #eab308; display: none;" onclick="genererAttestationPDF()">📄 Télécharger mon Attestation PDF</button>
+    <button style="background-color: #64748b;" onclick="retourMenuPrincipal()">🔄 Retourner au Tableau de Bord</button>
 </div>
 
-<!-- LIEN VERS LE LOGICIEL QUIZ ET LA BASE DE DONNÉES -->
-    <!-- Bibliothèque de génération PDF -->
-<script src="https://cloudflare.com"></script>
-
+<!-- Lien vers votre fichier de logique technique existant -->
 <script src="quiz.js"></script>
 
 </body>
