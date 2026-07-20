@@ -6,22 +6,21 @@
     <title>HSE Formation - Tago Dominique</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 100%; max-width: 500px; }
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 100%; max-width: 500px; box-sizing: border-box; }
         h2 { color: #333; margin-bottom: 24px; }
         .input-group { margin-bottom: 20px; text-align: left; }
         label { display: block; margin-bottom: 6px; color: #666; font-size: 14px; }
         input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; box-sizing: border-box; background-color: #f9f9f9; }
-        button { width: 100%; padding: 14px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button { width: 100%; padding: 14px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 10px; box-sizing: border-box; }
         button:hover { background-color: #059669; }
-        .hidden { display: none; }
-        .module-btn { background-color: #3b82f6; text-align: left; padding: 15px; margin-bottom: 10px; border-radius: 6px; font-size: 15px; }
+        .module-btn { background-color: #3b82f6; text-align: left; padding: 15px; margin-bottom: 10px; border-radius: 6px; font-size: 15px; width: 100%; color: white; border: none; cursor: pointer; }
         .module-btn:hover { background-color: #2563eb; }
         .cours-texte { text-align: left; background: #f8fafc; padding: 15px; border-left: 4px solid #10b981; border-radius: 4px; white-space: pre-line; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-<!-- ÉCRAN 1 : CONNEXION -->
+<!-- ÉCRAN 1 : CONNEXION (VISIBLE AU DÉPART) -->
 <div id="ecran-connexion" class="card">
     <h2>🔒 Connexion</h2>
     <div class="input-group">
@@ -35,8 +34,8 @@
     <button onclick="connecter()">Entrer</button>
 </div>
 
-<!-- ÉCRAN 2 : SÉLECTION DES MODULES -->
-<div id="ecran-modules" class="card hidden">
+<!-- ÉCRAN 2 : SÉLECTION DES MODULES (CACHÉ AU DÉPART) -->
+<div id="ecran-modules" class="card" style="display: none;">
     <h2>📚 Tableau de Bord HSE</h2>
     <p style="color: #666; margin-bottom: 20px;">Sélectionnez votre module de formation :</p>
     <button class="module-btn" onclick="ouvrirModule('Travaux en Hauteur')">👷 1. Travaux en Hauteur (Actif)</button>
@@ -49,8 +48,8 @@
     <button class="module-btn" onclick="ouvrirModule('Opérateur de Machines')">⚙️ 8. Opérateur de Machines (Actif)</button>
 </div>
 
-<!-- ÉCRAN 3 : AFFICHAGE DU COURS -->
-<div id="ecran-cours" class="card hidden">
+<!-- ÉCRAN 3 : AFFICHAGE DU COURS (CACHÉ AU DÉPART) -->
+<div id="ecran-cours" class="card" style="display: none;">
     <h2 id="cours-titre">Cours</h2>
     <div id="cours-contenu" class="cours-texte"></div>
     <button onclick="lancerQuiz()">📝 Démarrer le Questionnaire (20 questions)</button>
@@ -58,7 +57,6 @@
 </div>
 
 <script>
-    // Base de données locale pour l'interface Web
     const coursData = {
         "Travaux en Hauteur": "Le travail en hauteur est l'une des causes principales d'accidents graves au travail. Un travail est considéré en hauteur dès lors qu'il y a un risque de chute dans le vide.\n\nLa protection collective (garde-corps, filets) est TOUJOURS prioritaire sur la protection individuelle.",
         "Habilitation Électrique": "Le courant électrique présente deux risques majeurs : l'électrisation (passage du courant dans le corps) et l'électrocution (mortelle).\n\nAvant toute intervention, il faut réaliser une consignation (Séparer, Verrouiller, VAT, Mettre à la terre).",
@@ -72,26 +70,22 @@
 
     let moduleActuel = "";
 
-      function connecter() {
-        // Cette ligne va masquer totalement la boîte de connexion
+    function connecter() {
         document.getElementById('ecran-connexion').style.display = 'none';
-        
-        // Cette ligne affiche proprement le tableau de bord au centre
-        document.getElementById('ecran-modules').classList.remove('hidden');
+        document.getElementById('ecran-modules').style.display = 'block';
     }
-
 
     function ouvrirModule(nomModule) {
         moduleActuel = nomModule;
-        document.getElementById('ecran-modules').classList.add('hidden');
+        document.getElementById('ecran-modules').style.display = 'none';
         document.getElementById('cours-titre').innerText = nomModule;
         document.getElementById('cours-contenu').innerText = coursData[nomModule];
-        document.getElementById('ecran-cours').classList.remove('hidden');
+        document.getElementById('ecran-cours').style.display = 'block';
     }
 
     function retourModules() {
-        document.getElementById('ecran-cours').classList.add('hidden');
-        document.getElementById('ecran-modules').classList.remove('hidden');
+        document.getElementById('ecran-cours').style.display = 'none';
+        document.getElementById('ecran-modules').style.display = 'block';
     }
 
     function lancerQuiz() {
@@ -99,36 +93,5 @@
     }
 </script>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSE Formation</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 100%; max-width: 400px; }
-        h2 { color: #333; margin-bottom: 24px; }
-        .input-group { margin-bottom: 20px; text-align: left; }
-        label { display: block; margin-bottom: 6px; color: #666; font-size: 14px; }
-        input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; box-sizing: border-box; background-color: #f9f9f9; }
-        button { width: 100%; padding: 14px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; }
-    </style>
-</head>
-<body>
-<div class="card">
-    <h2>🔒 Connexion</h2>
-    <div class="input-group">
-        <label>Nom d'utilisateur</label>
-        <input type="text" value="TAGO DOMINIQUE" readonly>
-    </div>
-    <div class="input-group">
-        <label>Adresse Email</label>
-        <input type="text" value="gondra011@gmail.com" readonly>
-    </div>
-    <button onclick="window.location.reload()">Entrer</button>
-</div>
 </body>
 </html>
