@@ -1,8 +1,31 @@
 if (!window.QUESTIONS_MODULES) window.QUESTIONS_MODULES = {};
 
+// 1. LIVRET DE COURS COMPLET DU MODULE 2
+window.QUESTIONS_MODULES["Habilitation Électrique_Cours"] = 
+    "--- LIVRET DE FORMATION : HABILITATION ÉLECTRIQUE ---\n\n" +
+    "1. LES RISQUES DU COURANT ÉLECTRIQUE :\n" +
+    "Le courant électrique est un danger invisible. On distingue deux types d'accidents corporels principaux :\n" +
+    "- L'électrisation : passage du courant électrique à travers le corps humain, provoquant des brûlures, des contractions musculaires ou des lésions internes.\n" +
+    "- L'électrocution : une électrisation qui entraîne immédiatement le décès de la victime.\n\n" +
+    "2. QU'EST-CE QUE L'HABILITATION ÉLECTRIQUE ? :\n" +
+    "L'habilitation est la reconnaissance par l'employeur (et non par l'organisme de formation) de la capacité d'un salarié à accomplir les tâches fixées en toute sécurité face au risque électrique. Elle nécessite une formation théorique et pratique préalable ainsi qu'un avis favorable. Les indices commencent par la lettre 'B' pour la Basse Tension (BT). Le chiffre '1' désigne un exécutant (ex: B1), tandis que le chiffre '2' désigne un chargé de travaux qui dirige le chantier (ex: B2).\n\n" +
+    "3. LA PROCÉDURE DE CONSIGNATION EN 4 ÉTAPES :\n" +
+    "Avant d'intervenir sur un circuit ou une armoire électrique, il faut obligatoirement réaliser une consignation pour travailler hors tension :\n" +
+    "1. La Séparation : couper physiquement l'alimentation électrique générale (ouverture du disjoncteur ou sectionneur).\n" +
+    "2. La Condamnation : bloquer mécaniquement l'appareil en position ouverte à l'aide d'un cadenas de consignation et d'une étiquette pour empêcher toute remise en route accidentelle.\n" +
+    "3. La VAT (Vérification de l'Absence de Tension) : Utiliser un testeur dédié (détecteur de tension réglementaire conforme) et JAMAIS un multimètre classique.\n" +
+    "4. La Mise à la terre et en court-circuit (MALT/CC) : pour évacuer les courants résiduels et protéger d'une réalimentation accidentelle.\n\n" +
+    "4. SÉCURITÉ, OUTILLAGE ET EPI :\n" +
+    "Le port de bijoux ou d'objets métalliques conducteurs (montres, bagues) est strictement interdit. Pour ouvrir une armoire sous tension, l'opérateur doit obligatoirement utiliser des outils isolés (portant le symbole des deux triangles superposés avec la mention 1000V), s'équiper de gants isolants adaptés à la tension et porter un écran facial anti-court-circuit. Face à une victime collée à un câble, ne la touchez jamais directement : coupez immédiatement le courant de manière sûre ou utilisez un objet isolant pour l'écarter.";
+
+// 2. LIENS LIÉS AUX VISUELS ET VIDÉOS PÉDAGOGIQUES
+window.QUESTIONS_MODULES["Habilitation Électrique_Image"] = "https://unsplash.com"; // Image technique d'armoire électrique
+window.QUESTIONS_MODULES["Habilitation Électrique_Video"] = "https://youtube.com"; // Vidéo pédagogique sur la consignation électrique
+
+// 3. BASE DE DONNÉES DU QUESTIONNAIRE (20 QUESTIONS UNIQUES)
 window.QUESTIONS_MODULES["Habilitation Électrique"] = [
     { q: "Quelle est la différence entre électrisation et électrocution ?", o: ["A) L'électrisation est mortelle, pas l'électrocution", "B) L'électrocution entraîne obligatoirement le décès de la victime", "C) C'est la même chose"], r: "B" },
-    { q: "Qu'est-ce qu'un indice d'habilitation B1 ?", o: ["A) Un chargé de travaux", "B) Un exécutant électricien en basse tension", "C) Un ingénieur"], r: "B" },
+    { q: "Qu'est-ce qu'un indice d'habilitation B1 ?", o: ["A) Un chargé de travaux", "B) Un exécutant électricien en basse tension", "C) Un ingénieur réseau"], r: "B" },
     { q: "Quelle est la première étape d'une consignation électrique ?", o: ["A) Mettre des gants", "B) La séparation (couper l'alimentation électrique générale)", "C) Appeler les pompiers"], r: "B" },
     { q: "Que signifie le sigle VAT en sécurité électrique ?", o: ["A) Vérification de l'Absence de Tension", "B) Voltage Automatique Total", "C) Véhicule d'Assistance Technique"], r: "A" },
     { q: "Peut-on utiliser un multimètre classique pour réaliser une VAT réglementaire ?", o: ["A) Oui, si l'appareil est neuf", "B) Non, il faut utiliser un testeur dédié (détecteur de tension) conforme", "C) Oui, en faisant attention"], r: "B" },
@@ -14,7 +37,7 @@ window.QUESTIONS_MODULES["Habilitation Électrique"] = [
     { q: "Dans un indice d'habilitation, le chiffre '2' (ex: B2) signifie que la personne est :", o: ["A) Chargée de travaux (dirige le chantier)", "B) Simple exécutant", "C) Stagiaire"], r: "A" },
     { q: "Quelle lettre dans l'habilitation désigne une personne effectuant des manœuvres ?", o: ["A) La lettre M", "B) La lettre C", "C) La lettre R"], r: "A" },
     { q: "Quel EPI est indispensable pour ouvrir une armoire électrique sous tension ?", o: ["A) Des gants en cuir", "B) Des gants isolants adaptés et un écran facial anti-court-circuit", "C) Des lunettes de soleil"], r: "B" },
-    { q: "Quelle est l'utilité du cadenas de consignation ?", o: ["A) Empêcher le vol", "B) Bloquer mécaniquement l'appareil de coupure pour éviter sa remise en route", "C) Décorer le disjoncteur"], r: "B" },
+    { q: "Quelle est l'utilité du cadenas de consignation ?", o: ["A) Empêcher le vol", "B) Bloquer mécaniquement l'appareil de coupure pour éviter sa remise en route accidentelle", "C) Décorer le disjoncteur"], r: "B" },
     { q: "Qu'est-ce qu'un court-circuit ?", o: ["A) Une coupure de courant volontaire", "B) Un contact direct accidentel entre deux conducteurs", "C) Un câble trop court"], r: "B" },
     { q: "Quelle est la tension de sécurité maximale en milieu sec (TS) ?", o: ["A) 12 Volts", "B) 50 Volts", "C) 230 Volts"], r: "B" },
     { q: "Une habilitation électrique est généralement valable pendant combien de temps ?", o: ["A) 6 mois", "B) 3 ans", "C) 10 ans"], r: "B" },
