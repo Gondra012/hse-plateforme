@@ -1,17 +1,6 @@
 // =========================================================================
-// QUIZ.JS - PARTIE 1 : INTERFACE DE BASE, COURS ET ENREGISTREMENT BDD
+// QUIZ.JS SÉCURISÉ AVEC VISUELS - PARTIE 1 : INITIALISATION ET INTERFACE
 // =========================================================================
-
-const BDD_FORMATION = {
-    "Travaux en Hauteur": { cours: "Le travail en hauteur présente des risques majeurs de chutes. La protection collective (garde-corps, filets) est prioritaire sur la protection individuelle (harnais).\n\nLe harnais doit être inspecté et connecté à un point d'ancrage solide situé au-dessus de la tête." },
-    "Habilitation Électrique": { cours: "Le courant électrique présente deux risques majeurs : l'électrisation (passage du courant dans le corps) et l'électrocution (mortelle).\n\nAvant toute intervention, il faut réaliser une consignation : Séparer, Verrouiller, VAT, Mettre à la terre." },
-    "Lutte contre l'Incendie": { cours: "Pour qu'un feu se déclare et se maintienne, trois éléments doivent impérativement être réunis : un Combustible, un Comburant (l'oxygène de l'air) et une Énergie d'activation (chaleur, étincelle, flamme). C'est le Triangle du Feu." },
-    "Corde & Sauvetage": { cours: "Les travaux d'accès par corde nécessitent une technicité extrême. Le cordiste doit toujours être connecté à deux systèmes de cordes indépendants : une corde de travail et une corde de sécurité." },
-    "Assemblage au Mât": { cours: "L'assemblage de structures sur pylônes ou mâts présente des risques de chutes d'outils ou d'objets. Le balisage d'une zone d'exclusion au sol est obligatoire sous le mât." },
-    "Élingage": { cours: "L'élingage consiste à lier une charge à un appareil de levage. Inspectez le matériel avant chaque utilisation : refuser toute élingue coupée ou sans étiquette de Charge Maximale Utile (CMU)." },
-    "Conduite Défensive": { cours: "La conduite défensive est une attitude de sécurité au volant visant à anticiper les situations dangereuses. Respectez la règle des 2 secondes d'écart avec le véhicule qui précède." },
-    "Opérateur de Machines": { cours: "L'utilisation de machines industrielles présente des risques d'accidents graves. Les carters de protection et les boutons d'arrêt d'urgence ne doivent jamais être retirés ou shuntés." }
-};
 
 const TOUS_LES_MODULES = [
     "Travaux en Hauteur", "Habilitation Électrique", "Lutte contre l'Incendie", 
@@ -46,9 +35,6 @@ function connecterEtudiant() {
     document.getElementById('bienvenue-msg').innerText = "👨‍🎓 Apprenant : " + etudiantActuel;
     rafraichirTableauBord();
 }
-// =========================================================================
-// QUIZ.JS - PARTIE 2 : ENGINE, QUIZ ET EXPORT ATTESTATION
-// =========================================================================
 
 function rafraichirTableauBord() {
     try {
@@ -56,8 +42,8 @@ function rafraichirTableauBord() {
         if (!container) return;
         container.innerHTML = "";
         
-        if (typeof QUESTIONS_MODULES === 'undefined') {
-            container.innerHTML = "<p style='color:red;font-weight:bold;'>⚠️ Erreur : Le fichier questions.js est manquant ou cassé sur GitHub. Veuillez le recréer.</p>";
+        if (typeof window.QUESTIONS_MODULES === 'undefined') {
+            container.innerHTML = "<p style='color:red;font-weight:bold;'>⚠️ Erreur : Les fichiers de questions ne se chargent pas. Vérifiez index.html.</p>";
             return;
         }
 
@@ -109,12 +95,46 @@ function construireBoutonsModules(tousLesScores) {
         });
     }
 }
+// =========================================================================
+// QUIZ.JS SÉCURISÉ AVEC VISUELS - PARTIE 2 : LOGIQUE DES COURS, VISUELS ET QUIZ
+// =========================================================================
 
 function ouvrirCoursTechnique(nomModule) {
     moduleEnCours = nomModule;
     document.getElementById('ecran-modules').style.display = 'none';
     document.getElementById('cours-titre').innerText = nomModule;
-    document.getElementById('cours-contenu').innerText = BDD_FORMATION[nomModule].cours;
+    
+    // 1. Gestion du texte long du cours
+    const cleCours = nomModule + "_Cours";
+    if (window.QUESTIONS_MODULES && window.QUESTIONS_MODULES[cleCours]) {
+        document.getElementById('cours-contenu').innerText = window.QUESTIONS_MODULES[cleCours];
+    } else {
+        document.getElementById('cours-contenu').innerText = `--- LIVRET DE FORMATION : ${nomModule.toUpperCase()} ---\n\nBienvenue dans ce module de formation professionnelle HSE.\n\nPrenez le temps de bien assimiler ces consignes générales avant de lancer votre évaluation.`;
+    }
+    
+    // 2. Gestion de l'image dynamique
+    const cleImage = nomModule + "_Image";
+    const imgElement = document.getElementById('cours-image');
+    const imgContainer = document.getElementById('cours-image-container');
+    if (window.QUESTIONS_MODULES && window.QUESTIONS_MODULES[cleImage]) {
+        imgElement.src = window.QUESTIONS_MODULES[cleImage];
+        imgContainer.style.display = "block";
+    } else {
+        imgContainer.style.display = "none";
+    }
+
+    // 3. Gestion de la vidéo dynamique (Lien d'intégration YouTube)
+    const cleVideo = nomModule + "_Video";
+    const videoElement = document.getElementById('cours-video');
+    const videoContainer = document.getElementById('cours-video-container');
+    if (window.QUESTIONS_MODULES && window.QUESTIONS_MODULES[cleVideo]) {
+        videoElement.src = window.QUESTIONS_MODULES[cleVideo];
+        videoContainer.style.display = "block";
+    } else {
+        videoElement.src = "";
+        videoContainer.style.display = "none";
+    }
+    
     document.getElementById('ecran-cours').style.display = 'block';
 }
 
