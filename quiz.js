@@ -1,5 +1,5 @@
 // =========================================================================
-// MOTEUR LOGIQUE SÉCURISÉ - PARTIE 1 : INITIALISATION ET CONNEXION BDD
+// MOTEUR LOGIQUE SÉCURISÉ - PARTIE 1 : INITIALISATION ET LIAISON DES NOMS
 // =========================================================================
 
 const TOUS_LES_MODULES = [
@@ -43,7 +43,6 @@ function connecterEtudiant() {
             return;
         }
         
-        // Changement d'écran dynamique
         document.getElementById('ecran-connexion').style.display = 'none';
         document.getElementById('ecran-modules').style.display = 'block';
         document.getElementById('bienvenue-msg').innerText = "👨‍🎓 Apprenant : " + etudiantActuel;
@@ -54,7 +53,7 @@ function connecterEtudiant() {
     }
 }
 // =========================================================================
-// MOTEUR LOGIQUE SÉCURISÉ - PARTIE 2 : ENGINE, QUIZ ET EXPORT ATTESTATION
+// MOTEUR LOGIQUE SÉCURISÉ - PARTIE 2 : CORRECTION DIRECTE DU BUG UNDEFINED
 // =========================================================================
 
 function rafraichirTableauBord() {
@@ -63,7 +62,8 @@ function rafraichirTableauBord() {
         if (!container) return;
         container.innerHTML = "";
         
-        if (typeof BDD_FORMATION === 'undefined') {
+        // CORRECTION : On vérifie le bon nom du fichier de questions externe
+        if (typeof QUESTIONS_MODULES === 'undefined') {
             container.innerHTML = "<p style='color:red;font-weight:bold;'>⚠️ Erreur : Le fichier questions.js est manquant ou cassé sur GitHub. Veuillez le recréer.</p>";
             return;
         }
@@ -96,7 +96,7 @@ function construireBoutonsModules(tousLesScores) {
         
         if (scoresModule.length > 0) {
             const maxScore = Math.max(...scoresModule.map(s => s.score));
-            const totalQ = BDD_FORMATION[nomMod] ? BDD_FORMATION[nomMod].length : 20;
+            const totalQ = QUESTIONS_MODULES[nomMod] ? QUESTIONS_MODULES[nomMod].length : 20;
             scoreTexte = `${maxScore} / ${totalQ}`;
         }
         
@@ -111,7 +111,7 @@ function construireBoutonsModules(tousLesScores) {
     if (tbody) {
         tbody.innerHTML = "";
         tousLesScores.forEach(s => {
-            const totalQ = BDD_FORMATION[s.module] ? BDD_FORMATION[s.module].length : 20;
+            const totalQ = QUESTIONS_MODULES[s.module] ? QUESTIONS_MODULES[s.module].length : 20;
             tbody.innerHTML += `<tr><td>${s.module}</td><td>${s.score}/${totalQ}</td><td>${s.pourcentage}%</td></tr>`;
         });
     }
@@ -122,11 +122,8 @@ function ouvrirCoursTechnique(nomModule) {
     document.getElementById('ecran-modules').style.display = 'none';
     document.getElementById('cours-titre').innerText = nomModule;
     
-    if (BDD_FORMATION[nomModule] && BDD_FORMATION[nomModule].cours) {
-        document.getElementById('cours-contenu').innerText = BDD_FORMATION[nomModule].cours;
-    } else {
-        document.getElementById('cours-contenu').innerText = `Bienvenue dans le module technique : ${nomModule}.\n\nPrenez connaissance des règles d'hygiène, de sécurité et d'environnement liées à ce poste de travail de l'entreprise.`;
-    }
+    // Contenu simplifié du cours
+    document.getElementById('cours-contenu').innerText = `Bienvenue dans le module technique : ${nomModule}.\n\nPrenez connaissance des règles d'hygiène, de sécurité et d'environnement (HSE) liées à ce poste de travail de l'entreprise. Lisez attentivement avant de lancer l'évaluation.`;
     document.getElementById('ecran-cours').style.display = 'block';
 }
 
@@ -149,7 +146,8 @@ function demarrerQuizInteractif() {
 function afficherQuestionFiche() {
     document.getElementById('btn-continuer-quiz').style.display = 'none';
     
-    const listeQuestions = BDD_FORMATION[moduleEnCours] || BDD_FORMATION["Travaux en Hauteur"];
+    // CORRECTION : Lecture stricte depuis QUESTIONS_MODULES
+    const listeQuestions = QUESTIONS_MODULES[moduleEnCours] || QUESTIONS_MODULES["Travaux en Hauteur"];
     const qActuelle = listeQuestions[indexQuestionActuelle];
     
     document.getElementById('quiz-progression').innerText = `Question ${indexQuestionActuelle + 1} / ${listeQuestions.length}`;
@@ -185,7 +183,7 @@ function verifierReponseSouris(boutonSelectionne, lettreChoisie, lettreCorrecte)
 
 function questionSuivante() {
     indexQuestionActuelle++;
-    const totalQ = BDD_FORMATION[moduleEnCours].length;
+    const totalQ = QUESTIONS_MODULES[moduleEnCours] ? QUESTIONS_MODULES[moduleEnCours].length : 20;
     
     if (indexQuestionActuelle < totalQ) {
         afficherQuestionFiche();
@@ -196,7 +194,7 @@ function questionSuivante() {
 
 function sauvegarderFinModuleBDD() {
     document.getElementById('ecran-quiz').style.display = 'none';
-    const totalQ = BDD_FORMATION[moduleEnCours].length;
+    const totalQ = QUESTIONS_MODULES[moduleEnCours] ? QUESTIONS_MODULES[moduleEnCours].length : 20;
     const pct = Math.round((scoreInteractif / totalQ) * 100);
     
     if (db) {
@@ -254,7 +252,7 @@ function genererAttestationPDF() {
                 <div class="texte">
                     A validé avec succès l'ensemble des compétences théoriques et pratiques liées au module de formation professionnelle : <br>
                     <strong>"${moduleEnCours}"</strong><br><br>
-                    Note globale enregistrée en BDD : <strong>${scoreInteractif} / ${BDD_FORMATION[moduleEnCours].length}</strong>
+                    Note globale enregistrée en BDD : <strong>${scoreInteractif} / ${QUESTIONS_MODULES[moduleEnCours].length}</strong>
                 </div>
                 <div class="date">Fait le ${new Date().toLocaleDateString()} - Document officiel certifié conforme</div>
             </div>
