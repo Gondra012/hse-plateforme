@@ -192,3 +192,41 @@ FORMATION_DATA.update({
         ]
     }
 })
+# Ajout du Module 6 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 6: Élingage": {
+        "cours": (
+            "--- MODULE 6 : ÉLINGAGE ---\n"
+            "L'élingage consiste à lier une charge à un appareil de levage à l'aide d'élingues (textiles, câbles ou chaînes).\n"
+            "Un mauvais élingage peut provoquer la chute de la charge, causant des accidents mortels ou des dégâts matériels majeurs.\n"
+            "Règles clés :\n"
+            "1. Connaître le poids de la charge avant de lever et s'assurer que la CMU (Charge Maximale Utile) du matériel est respectée.\n"
+            "2. Inspecter le matériel avant chaque utilisation : refuser toute élingue coupée, effilochée, déformée ou sans étiquette.\n"
+            "3. Prendre en compte l'angle d'élingage : plus l'angle entre les brins est grand, plus la tension sur chaque élingue augmente.\n"
+            "4. Utiliser des guides de charge (cordes de guidage) pour orienter la charge à distance sans la toucher directement.\n"
+            "5. Il est strictement interdit de circuler ou de stationner sous une charge suspendue."
+        ),
+        "questions": [
+            {"question": "Que signifie le sigle CMU inscrit sur une élingue ?", "options": ["A) Charge Maximale Utile (le poids maximum autorisé)", "B) Contrôle Mécanique Unique", "C) Capacité de Manutention Urgente"], "reponse": "A"},
+            {"question": "Quelle est l'obligation principale concernant l'étiquette d'une élingue ?", "options": ["A) Elle doit être de couleur verte", "B) Elle doit être présente, lisible et indiquer la CMU, sinon l'élingue est interdite", "C) Elle doit être retirée avant le levage"], "reponse": "B"},
+            {"question": "Quel type d'élingue est le plus sensible aux coupures sur des arêtes vives ?", "options": ["A) L'élingue en chaîne d'acier", "B) L'élingue textile (sangle synthétique)", "C) L'élingue en câble métallique"], "reponse": "B"},
+            {"question": "Que devez-vous installer sur les coins vifs d'une charge métallique avant d'utiliser une élingue textile ?", "options": ["A) De la peinture de signalisation", "B) Des protections d'angles ou fourreaux anti-coupure", "C) Rien du tout si la charge est propre"], "reponse": "B"},
+            {"question": "Comment évolue l'effort sur les élingues lorsque l'angle entre les brins augmente ?", "options": ["A) L'effort diminue", "B) L'effort augmente fortement (effet de coin)", "C) L'effort reste exactement le même"], "reponse": "B"},
+            {"question": "Quelle est la règle absolue concernant les charges suspendues pour le personnel au sol ?", "options": ["A) Porter deux casques", "B) Il est strictement interdit de circuler ou de travailler sous une charge suspendue", "C) Courir pour passer en dessous rapidement"], "reponse": "B"},
+            {"question": "Qu'est-ce qu'une 'élingue étranglée' (ou en nœud coulant) ?", "options": ["A) Une élingue abîmée", "B) Une technique où l'élingue fait le tour de la charge et repasse dans son propre œil", "C) Une élingue trop courte"], "reponse": "B"},
+            {"question": "Quel accessoire en forme de 'U' fermé par un axe permet de relier une élingue à un point de levage ?", "options": ["A) Un mousqueton simple", "B) Une manille", "C) Un serre-câble"], "reponse": "B"},
+            {"question": "Si une élingue en chaîne présente un maillon tordu ou allongé, que faut-il faire ?", "options": ["A) Tapoter dessus avec un marteau pour le redresser", "B) La retirer immédiatement du service et l'envoyer au rebut", "C) L'utiliser uniquement pour des petites charges"], "reponse": "B"},
+            {"question": "À quoi sert une 'longe de guidage' (ou corde de rétention) attachée à la charge ?", "options": ["A) À soulever la charge plus haut", "B) À orienter et stabiliser la charge à distance sans mettre ses mains dessous", "C) À attacher le crochet de la grue"], "reponse": "B"},
+            {"question": "Le code couleur des élingues textiles rondes est-il réglementé ? Que signifie une élingue VERTE ?", "options": ["A) CMU de 1 Tonne", "B) CMU de 2 Tonnes", "C) CMU de 5 Tonnes"], "reponse": "B"},
+            {"question": "Quelle couleur correspond à une élingue textile d'une CMU de 1 Tonne ?", "options": ["A) Violet", "B) Jaune", "C) Rouge"], "reponse": "A"},
+            {"question": "Quelle couleur correspond à une élingue textile d'une CMU de 3 Tonnes ?", "options": ["A) Bleu", "B) Jaune", "C) Marron"], "reponse": "B"},
+            {"question": "Qui a la responsabilité de vérifier l'état du matériel d'élingage avant chaque levage ?", "options": ["A) Le conducteur de la grue uniquement", "B) L'élingueur (l'opérateur qui accroche la charge)", "C) Le directeur du site à la fin du mois"], "reponse": "B"},
+            {"question": "Qu'est-ce que le 'centre de gravité' d'une charge lors d'un levage ?", "options": ["A) Le point le plus lourd", "B) Le point d'équilibre où la charge restera stable et droite une fois levée", "C) Le point le plus haut"], "reponse": "B"},
+            {"question": "Que se passe-t-il si le crochet de levage n'est pas aligné verticalement avec le centre de gravité de la charge ?", "options": ["A) La charge va monter plus vite", "B) La charge va basculer ou osciller violemment (effet de balancier) au décollage", "C) Rien du tout"], "reponse": "B"},
+            {"question": "Peut-on utiliser des élingues différentes (ex: une chaîne et une sangle textile) sur un même levage équilibré ?", "options": ["A) Oui, si elles ont la même longueur", "B) Non, il faut éviter de panacher les matières car elles n'ont pas la même élasticité", "C) Uniquement si la charge est légère"], "reponse": "B"},
+            {"question": "Quelle précaution prendre si le vent souffle en rafales lors d'un levage extérieur de grande surface ?", "options": ["A) Lever plus vite pour éviter le vent", "B) Interrompre la manœuvre car le vent peut déporter la charge de manière incontrôlable", "C) Mettre plus de cordes"], "reponse": "B"},
+            {"question": "Où doit se placer l'élingueur pendant le levage effectif de la charge ?", "options": ["A) Juste à côté de la charge pour la retenir avec ses mains", "B) En dehors de la zone de danger (trajectoire de la charge) et bien en vue du grutier", "C) Sous la charge pour vérifier l'équilibre"], "reponse": "B"},
+            {"question": "À quelle fréquence minimale les accessoires de levage (élingues, manilles) doivent-ils subir une vérification générale périodique par un organisme agréé ?", "options": ["A) Tous les 3 mois", "B) Tous les 12 mois (1 an)", "C) Tous les 5 ans"], "reponse": "B"}
+        ]
+    }
+})
