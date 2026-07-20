@@ -76,3 +76,42 @@ FORMATION_DATA.update({
         ]
     }
 })
+# Ajout du Module 3 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 3: Lutte contre l'Incendie": {
+        "cours": (
+            "--- MODULE 3 : LUTTE CONTRE L'INCENDIE ---\n"
+            "Le feu est une réaction chimique d'oxydation rapide. Pour qu'un feu se déclare et se maintienne,\n"
+            "trois éléments doivent impérativement être réunis : un Combustible (ce qui brûle, ex: bois, gaz),\n"
+            "un Comburant (l'oxygène de l'air) et une Énergie d'activation (chaleur, étincelle, flamme).\n"
+            "C'est ce qu'on appelle le Triangle du Feu. Supprimer un seul de ces éléments suffit à éteindre l'incendie.\n"
+            "Règles clés :\n"
+            "1. L'alerte doit être immédiate dès la découverte d'un début d'incendie.\n"
+            "2. Il existe 5 grandes classes de feux (A, B, C, D, F) nécessitant des agents d'extinction différents.\n"
+            "3. Un extincteur ne doit être utilisé que sur un début d'incendie, jamais si le feu est trop développé.\n"
+            "4. Lors de l'évacuation, la fumée est le danger principal : elle est toxique, chaude et opaque."
+        ),
+        "questions": [
+            {"question": "Quels sont les trois éléments indispensables pour former le 'Triangle du Feu' ?", "options": ["A) Fumée, Allumette, Bois", "B) Combustible, Comburant, Énergie d'activation", "C) Eau, Oxygène, Chaleur"], "reponse": "B"},
+            {"question": "Quelle classe de feu concerne les feux de solides (bois, papier, carton, tissus) ?", "options": ["A) Classe A", "B) Classe B", "C) Classe C"], "reponse": "A"},
+            {"question": "La Classe B regroupe les feux de liquides et solides liquéfiables (essence, huile, plastiques). Quel est son autre nom ?", "options": ["A) Feux gras", "B) Feux de métaux", "C) Feux de gaz"], "reponse": "A"},
+            {"question": "Quel type de feu est classé dans la 'Classe C' ?", "options": ["A) Les feux de métaux", "B) Les feux de gaz (butane, propane, gaz naturel)", "C) Les feux de friteuse"], "reponse": "B"},
+            {"question": "Quel agent d'extinction est le plus adapté pour éteindre un feu électrique ou une armoire sous tension ?", "options": ["A) L'eau pulvérisée avec additif", "B) Le dioxyde de carbone (CO2) qui étouffe le feu sans abîmer le matériel", "C) Un seau de sable humide"], "reponse": "B"},
+            {"question": "Pourquoi est-il formellement interdit de jeter de l'eau sur un feu d'huile de cuisson (Classe F) ?", "options": ["A) Cela refroidit trop vite la poêle", "B) Cela provoque une vaporisation explosive projetant de l'huile enflammée partout", "C) L'eau nourrit chimiquement le feu"], "reponse": "B"},
+            {"question": "Quelle est la première action à réaliser lorsque vous découvrez un début d'incendie ?", "options": ["A) Chercher vos objets de valeur", "B) Déclencher l'alarme sonore du bâtiment pour alerter tout le monde", "C) Essayer de filmer la scène"], "reponse": "B"},
+            {"question": "Comment appelle-t-on le mode d'extinction qui consiste à priver le feu d'oxygène ?", "options": ["A) Le refroidissement", "B) L'étouffement", "C) Le déblayage"], "reponse": "B"},
+            {"question": "Où devez-vous vous diriger immédiatement lorsque le signal d'alarme d'évacuation retentit ?", "options": ["A) Vers votre bureau pour éteindre l'ordinateur", "B) Vers la sortie de secours la plus proche pour rejoindre le Point de Rassemblement", "C) Aux toilettes pour vous laver les mains"], "reponse": "B"},
+            {"question": "En cas d'évacuation, pourquoi ne faut-il jamais utiliser les ascenseurs ?", "options": ["A) Ils consomment trop d'énergie", "B) Risque de blocage en cabine par coupure de courant et d'asphyxie par les fumées", "C) Ils sont trop lents"], "reponse": "B"},
+            {"question": "Si un couloir est envahi par une fumée dense, comment devez-vous progresser ?", "options": ["A) En courant le plus vite possible la tête haute", "B) Près du sol (à quatre pattes) car l'air y est plus frais et moins toxique", "C) En marchant à reculons les yeux fermés"], "reponse": "B"},
+            {"question": "Que devez-vous faire des portes et fenêtres derrière vous lors de l'évacuation si la situation le permet ?", "options": ["A) Les ouvrir en grand pour aérer", "B) Les fermer sans les verrouiller pour freiner la propagation des flammes et des fumées", "C) Les démonter"], "reponse": "B"},
+            {"question": "Quel est le numéro de téléphone universel pour joindre les secours en Europe ?", "options": ["A) 112", "B) 15", "C) 18"], "reponse": "A"},
+            {"question": "Quelle est la durée moyenne d'utilisation efficace en continu d'un extincteur portable de 6 kg ?", "options": ["A) Environ 20 à 30 secondes seulement", "B) Plus de 5 minutes", "C) Une heure entière"], "reponse": "A"},
+            {"question": "Où faut-il viser avec l'embout d'un extincteur pour éteindre efficacement un feu ?", "options": ["A) Le sommet des flammes", "B) La base des flammes (le foyer du combustible)", "C) Autour du feu pour faire un cercle"], "reponse": "B"},
+            {"question": "Que signifie l'acronyme RIA dans les installations fixes de protection incendie ?", "options": ["A) Robinet d'Incendie Armé", "B) Réseau d'Intervention Automatique", "C) Réserve d'Incendie Accessible"], "reponse": "A"},
+            {"question": "Quelle couleur caractérise l'ensemble des panneaux de signalisation relatifs au matériel incendie ?", "options": ["A) Le Vert", "B) Le Rouge", "C) Le Bleu"], "reponse": "B"},
+            {"question": "Qui est désigné dans une équipe d'évacuation pour fermer la marche et s'assurer que personne ne reste derrière ?", "options": ["A) Le guide-file", "B) Le serre-file", "C) Le responsable de site"], "reponse": "B"},
+            {"question": "Si vos vêtements ou ceux d'un collègue prennent feu, quel est le meilleur comportement ?", "options": ["A) Courir pour essayer d'éteindre le feu avec le vent", "B) Se rouler au sol ou étouffer les flammes avec une couverture non synthétique", "C) Ne rien faire et attendre que les pompiers arrivent"], "reponse": "B"},
+            {"question": "À quelle fréquence minimale les extincteurs d'une entreprise doivent-ils être contrôlés réglementairement ?", "options": ["A) Tous les mois", "B) Une fois par an (vérification annuelle obligatoire)", "C) Tous les 5 ans"], "reponse": "B"}
+        ]
+    }
+})
