@@ -37,3 +37,42 @@ FORMATION_DATA = {
         ]
     }
 }
+# Ajout du Module 2 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 2: Habilitation Électrique": {
+        "cours": (
+            "--- MODULE 2 : HABILITATION ÉLECTRIQUE ---\n"
+            "Le courant électrique est invisible et présente deux risques majeurs : l'électrisation\n"
+            "(passage du courant dans le corps) et l'électrocution (électrisation mortelle).\n"
+            "Règles clés :\n"
+            "1. L'habilitation électrique est la reconnaissance par l'employeur de la capacité d'un travailleur\n"
+            "   à accomplir des tâches en sécurité vis-à-vis du risque électrique.\n"
+            "2. Avant toute intervention sur un circuit, il faut réaliser une consignation (Séparer, Verrouiller,\n"
+            "   Vérifier l'Absence de Tension ou VAT, et Mettre à la terre).\n"
+            "3. Ne jamais utiliser un outil non isolé (sans le symbole 1000V) à proximité d'une source électrique.\n"
+            "4. En cas d'accident électrique, ne touchez jamais la victime avant d'avoir coupé le courant."
+        ),
+        "questions": [
+            {"question": "Quelle est la différence entre électrisation et électrocution ?", "options": ["A) L'électrisation est mortelle, pas l'électrocution", "B) L'électrocution entraîne obligatoirement le décès de la victime", "C) C'est exactement la même chose"], "reponse": "B"},
+            {"question": "Qu'est-ce que l'habilitation électrique ?", "options": ["A) Un diplôme d'ingénieur d'État", "B) Une autorisation écrite de l'employeur après une formation et une évaluation", "C) Un permis de conduire les chariots"], "reponse": "B"},
+            {"question": "Quelle est la première étape d'une consignation électrique ?", "options": ["A) Mettre des gants", "B) La séparation (couper l'alimentation électrique générale)", "C) Appeler les pompiers"], "reponse": "B"},
+            {"question": "Que signifie le sigle VAT en sécurité électrique ?", "options": ["A) Vérification de l'Absence de Tension", "B) Voltage Automatique Total", "C) Véhicule d'Assistance Technique"], "reponse": "A"},
+            {"question": "Peut-on utiliser un multimètre classique pour réaliser une VAT réglementaire ?", "options": ["A) Oui, si l'appareil est neuf", "B) Non, il faut utiliser un testeur dédié (détecteur de tension) conforme à la norme", "C) Oui, en faisant attention"], "reponse": "B"},
+            {"question": "Quel symbole graphique sur un outil indique qu'il est isolé pour 1000 Volts ?", "options": ["A) Un triangle avec un éclair", "B) Deux triangles superposés avec la mention 1000V", "C) Un cercle rouge"], "reponse": "B"},
+            {"question": "Que devez-vous faire en premier si vous voyez un collègue collé à un câble électrique ?", "options": ["A) Le tirer par le bras immédiatement", "B) Couper immédiatement le courant de manière sûre ou utiliser un objet isolant", "C) Courir chercher de l'eau"], "reponse": "B"},
+            {"question": "Quelle est la distance minimale de sécurité à respecter par rapport à une ligne aérienne haute tension (<50kV) ?", "options": ["A) 1 mètre", "B) 3 mètres", "C) 5 mètres"], "reponse": "B"},
+            {"question": "Un indice d'habilitation commençant par la lettre 'B' concerne :", "options": ["A) La Haute Tension (HT)", "B) La Basse Tension (BT) et Très Basse Tension (TBT)", "C) Les travaux en forêt"], "reponse": "B"},
+            {"question": "Dans un indice d'habilitation, le chiffre '1' (ex: B1) signifie que la personne est :", "options": ["A) Chargée de travaux", "B) Exécutant électricien", "C) Chargée de consignation"], "reponse": "B"},
+            {"question": "Dans un indice d'habilitation, le chiffre '2' (ex: B2) signifie que la personne est :", "options": ["A) Chargée de travaux (dirige le chantier)", "B) Simple exécutant", "C) Stagiaire"], "reponse": "A"},
+            {"question": "Quelle lettre dans l'habilitation désigne une personne effectuant des manœuvres ?", "options": ["A) La lettre M", "B) La lettre C", "C) La lettre R"], "reponse": "A"},
+            {"question": "Quel EPI est indispensable pour ouvrir une armoire électrique sous tension ?", "options": ["A) Des gants de chantier en cuir", "B) Des gants isolants adaptés à la tension et un écran facial anti-court-circuit", "C) Des lunettes de soleil"], "reponse": "B"},
+            {"question": "Quelle est l'utilité du cadenas de consignation ?", "options": ["A) Empêcher le vol de l'armoire électrique", "B) Bloquer mécaniquement l'appareil de coupure pour éviter sa remise en route accidentelle", "C) Décorer le disjoncteur"], "reponse": "B"},
+            {"question": "Qu'est-ce qu'un court-circuit ?", "options": ["A) Une coupure de courant volontaire", "B) Un contact direct accidentel entre deux conducteurs de potentiels différents", "C) Un câble trop court"], "reponse": "B"},
+            {"question": "Quelle est la tension de sécurité maximale en milieu sec (Très Basse Tension de Sécurité) ?", "options": ["A) 12 Volts", "B) 50 Volts", "C) 230 Volts"], "reponse": "B"},
+            {"question": "Une habilitation électrique est généralement valable pendant combien de temps avant recyclage conseillé ?", "options": ["A) 6 mois", "B) 3 ans", "C) 10 ans"], "reponse": "B"},
+            {"question": "Qui doit signer le titre d'habilitation électrique d'un salarié ?", "options": ["A) Le formateur HSE", "B) L'employeur (le chef d'entreprise)", "C) Le salarié uniquement"], "reponse": "B"},
+            {"question": "Le port de bijoux ou d'objets métalliques (montres, bagues) est-il autorisé lors de travaux électriques ?", "options": ["A) Oui, si les bijoux sont petits", "B) Non, ils doivent être retirés car ils sont conducteurs et augmentent le risque de court-circuit", "C) Uniquement les bagues en or"], "reponse": "B"},
+            {"question": "Que signifie la mise à la terre d'une installation électrique ?", "options": ["A) Cacher les câbles sous la terre", "B) Évacuer les courants de fuite vers la terre pour protéger les personnes d'un contact indirect", "C) Éteindre l'installation"], "reponse": "B"}
+        ]
+    }
+})
