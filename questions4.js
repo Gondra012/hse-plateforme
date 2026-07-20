@@ -1,0 +1,24 @@
+if (!window.QUESTIONS_MODULES) window.QUESTIONS_MODULES = {};
+
+window.QUESTIONS_MODULES["Corde & Sauvetage"] = [
+    { q: "Quelle est la règle d'or concernant le nombre de cordes lors d'un accès difficile ?", o: ["A) Une seule corde suffit si elle est grosse", "B) Toujours deux cordes indépendantes (travail et sécurité)", "C) Trois cordes obligatoirement"], r: "B" },
+    { q: "Comment appelle-t-on le nœud le plus utilisé et le plus sûr pour s'amarrer sur une corde ?", o: ["A) Le nœud de huit", "B) Le nœud de cravate", "C) Le nœud simple"], r: "A" },
+    { q: "Quel composant mécanique permet de descendre de manière contrôlée le long d'une corde ?", o: ["A) Un bloqueur ventral", "B) Un descendeur auto-freinant", "C) Une poulie simple"], r: "B" },
+    { q: "À quoi sert un appareil 'antichute mobile' (type ASAP) sur la corde de sécurité ?", o: ["A) À monter plus vite", "B) À bloquer instantanément la descente en cas de rupture de la corde de travail", "C) À mesurer la hauteur"], r: "B" },
+    { q: "Peut-on fixer la corde de travail et la corde de sécurité sur le même point d'ancrage ?", o: ["A) Oui, si l'ancrage est très gros", "B) Non, chaque corde doit avoir un point d'ancrage structurellement indépendant", "C) Uniquement en intérieur"], r: "B" },
+    { q: "Qu'est-ce qu'une 'déviation' sur une corde ?", o: ["A) Un changement de couleur de la corde", "B) Un amarrage intermédiaire pour écarter la corde d'une arête tranchante", "C) Une technique pour descendre à deux"], r: "B" },
+    { q: "Quel est le risque majeur si une corde frotte directement sur une arête en béton coupante ?", o: ["A) La corde va simplement se salir", "B) La rupture par cisaillement de la corde sous le poids du travailleur", "C) La corde va s'allonger"], r: "B" },
+    { q: "Quel équipement utilise-t-on pour protéger une corde des frottements contre un mur ?", o: ["A) Un protège-corde (gaine en PVC ou rouleau)", "B) Du ruban adhésif simple", "C) Un morceau de tissu en coton"], r: "A" },
+    { q: "Qu'est-ce qu'un 'bloqueur' (type poignée Jumar ou bloqueur ventral) ?", o: ["A) Un outil pour couper la corde", "B) Un appareil qui glisse vers le haut et se bloque vers le bas pour la remontée", "C) Un système de freinage"], r: "B" },
+    { q: "Pourquoi la rapidité est-elle vitale lors du sauvetage d'une personne suspendue inerte ?", o: ["A) Pour finir la journée à l'heure", "B) Pour éviter le syndrome de suspension (arrêt circulatoire mortel)", "C) Pour ne pas abîmer le harnais"], r: "B" },
+    { q: "Quelle est la durée de vie maximale recommandée pour un équipement textile (corde, harnais) ?", o: ["A) 2 ans", "B) 5 à 10 ans selon les préconisations du fabricant", "C) Illimitée tant qu'il n'est pas cassé"], r: "B" },
+    { q: "Que signifie l'inspection 'EPI' quotidienne par le cordiste ?", o: ["A) Peser son matériel", "B) Vérifier visuellement et au toucher l'état des cordes, coutures et mousquetons", "C) Remplir un rapport de 20 pages"], r: "B" },
+    { q: "Un mousqueton utilisé pour les travaux sur corde doit obligatoirement être :", o: ["A) En aluminium simple sans verrouillage", "B) À verrouillage automatique ou manuel (sécurité 2 ou 3 mouvements)", "C) Le plus petit possible"], r: "B" },
+    { q: "Qu'est-ce qu'une 'longe de maintien' ?", o: ["A) Une corde pour tirer du matériel", "B) Une longe réglable qui permet de se stabiliser face au poste de travail", "C) Une corde de secours"], r: "B" },
+    { q: "Lors d'une évacuation de blessé par le haut, quel équipement permet de démultiplier l'effort ?", o: ["A) Un mouflage (système de poulies et bloqueurs)", "B) Un gros marteau", "C) Un descendeur"], r: "A" },
+    { q: "Quel type de corde utilise-t-on principalement pour l'accès sur corde (faible entraînement) ?", o: ["A) Des cordes dynamiques (type escalade)", "B) Des cordes semi-statiques", "C) Des cordes en nylon de chantier de maçonnerie"], r: "B" },
+    { q: "À quoi sert un 'nœud de fin de corde' (en bas de la descente) ?", o: ["A) À faire joli", "B) À empêcher le cordiste de glisser et de sortir accidentellement du bout de sa corde", "C) À alourdir la corde"], r: "B" },
+    { q: "Qui doit rédiger la procédure de secours spécifique d'un chantier sur cordes ?", o: ["A) Les pompiers uniquement", "B) L'entreprise responsable des travaux avant le démarrage", "C) Le client"], r: "B" },
+    { q: "Si une corde présente une hernie (déformation de la gaine ou de l'âme), que faut-il faire ?", o: ["A) Mettre du scotch autour", "B) La couper ou la mettre immédiatement au rebut", "C) L'utiliser uniquement pour les petites hauteurs"], r: "B" },
+    { q: "Le casque d'un cordiste doit posséder une caractéristique obligatoire par rapport au chantier classique :", o: ["A) Une visière teintée", "B) Une jugulaire résistante (fermée sous le menton) pour éviter de perdre le casque", "C) Être de couleur rouge"], r: "B" }
+];
