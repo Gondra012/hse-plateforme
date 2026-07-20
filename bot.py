@@ -1,7 +1,7 @@
 import time
 
 # ==========================================
-# 1. CONTENU DE LA FORMATION (À compléter)
+# 1. CONTENU DE LA FORMATION
 # ==========================================
 FORMATION_DATA = {
     "Module 1: Introduction au HSE": {
@@ -24,16 +24,17 @@ def lancer_bot():
     time.sleep(1)
     print("[+] Le robot est désormais actif et en cours d'exécution.\n")
     
-    # Présentation des modules disponibles
     print("--- BIENVENUE DANS VOTRE FORMATION HSE ---")
-    for module in FORMATION_DATA.keys():
-        print(f"[-] {module}")
-    print("------------------------------------------\n")
-
-    # Boucle d'attente
-    while True:
-        print("[Pas de tâche] En attente d'instructions...")
-        time.sleep(5)
+    
+    # Pour chaque module, on affiche le cours
+    for nom_module, donnees in FORMATION_DATA.items():
+        print(f"\n=== {nom_module} ===")
+        print(donnees["cours"])
+        
+        # Le robot attend que l'utilisateur appuie sur Entrée pour continuer
+        input("\n[Appuyez sur ENTRÉE pour commencer le questionnaire...]")
+        
+    print("\n[+] Fin de la session de formation.")
 
 if __name__ == "__main__":
     try:
