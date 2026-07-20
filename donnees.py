@@ -268,3 +268,41 @@ FORMATION_DATA.update({
         ]
     }
 })
+# Ajout du Module 8 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 8: Opérateur de Machines": {
+        "cours": (
+            "--- MODULE 8 : OPÉRATEUR DE MACHINES ---\n"
+            "L'utilisation de machines industrielles présente des risques d'accidents graves : entraînement,\n"
+            "coupure, écrasement, projection de pièces ou de copeaux. La sécurité repose sur le strict respect\n"
+            "des protecteurs et des procédures de maintenance.\n"
+            "Règles clés :\n"
+            "1. Les carters de protection et dispositifs de sécurité ne doivent JAMAIS être retirés ou shuntés.\n"
+            "2. Le bouton d'arrêt d'urgence doit être visible, accessible et testé régulièrement.\n"
+            "3. Toute opération de réglage, nettoyage ou réparation doit se faire machine à l'arrêt complet et consignée.\n"
+            "4. Interdiction de porter des vêtements amples, des cheveux longs détachés ou des bijoux au poste de travail."
+        ),
+        "questions": [
+            {"question": "Quel est le risque principal lors de l'utilisation d'une machine avec des pièces en rotation ?", "options": ["A) Le risque de poussière", "B) Le risque d'entraînement, de happement ou de sectionnement des membres", "C) La surchauffe des néons"], "reponse": "B"},
+            {"question": "Peut-on retirer un carter de protection pour travailler plus vite sur une machine ?", "options": ["A) Oui, si on fait attention", "B) Non, il est strictement interdit de neutraliser ou retirer un dispositif de sécurité", "C) Uniquement si le chef donne son accord verbal"], "reponse": "B"},
+            {"question": "À quoi sert le bouton d'arrêt d'urgence de type 'coup de poing' ?", "options": ["A) À allumer la machine le matin", "B) À couper immédiatement l'alimentation électrique de la machine en cas de danger imminent", "C) À appeler les secours"], "reponse": "B"},
+            {"question": "Pourquoi est-il interdit de porter des vêtements amples ou des bijoux (chaînettes, bagues) près d'une machine ?", "options": ["A) Parce qu'ils peuvent se salir", "B) Parce qu'ils augmentent considérablement le risque de happement par les pièces en mouvement", "C) Pour des raisons d'esthétique"], "reponse": "B"},
+            {"question": "Quelle précaution obligatoire doivent prendre les opérateurs ayant des cheveux longs ?", "options": ["A) Les teindre en une couleur visible", "B) Les attacher ou les coiffer sous une casquette/un filet pour éviter l'entraînement", "C) Ne pas travailler sur les machines"], "reponse": "B"},
+            {"question": "Que devez-vous faire avant d'effectuer le nettoyage ou le débourrage d'une machine ?", "options": ["A) Ralentir la vitesse de la machine", "B) Arrêter complètement la machine et s'assurer de sa consignation électrique/mécanique", "C) Mettre des gants plus épais en laissant tourner"], "reponse": "B"},
+            {"question": "Que signifie la 'mise en conformité' d'une machine de travail ?", "options": ["A) Changer sa couleur pour qu'elle corresponde à l'usine", "B) Veiller à ce qu'elle réponde aux normes de sécurité techniques et juridiques en vigueur", "C) Augmenter sa vitesse de production maximale"], "reponse": "B"},
+            {"question": "Qu'est-ce qu'une commande 'bimanuelle' sur une machine (ex: presse hydraulique) ?", "options": ["A) Une commande qui s'active avec un pied et une main", "B) Un système obligeant l'opérateur à utiliser ses deux mains pour lancer le cycle, protégeant ainsi ses doigts", "C) Une télécommande sans fil"], "reponse": "B"},
+            {"question": "Si une machine émet un bruit anormal ou des vibrations suspectes, quelle est la bonne réaction ?", "options": ["A) Continuer le travail jusqu'à la fin du cycle", "B) Arrêter la machine, baliser le poste et signaler immédiatement l'anomalie à la maintenance", "C) Mettre un casque antibruit plus fort"], "reponse": "B"},
+            {"question": "Pour enlever des copeaux métalliques ou des débris sur une table de machine, on utilise :", "options": ["A) Ses mains nues", "B) Un outil adapté (brosse, pince, balayette) machine à l'arrêt, jamais ses mains", "C) Une soufflette d'air comprimé dirigée vers les collègues"], "reponse": "B"},
+            {"question": "Quelle est l'utilité d'un dispositif de protection 'interverrouillé' sur une porte de machine ?", "options": ["A) Bloquer la porte pour empêcher le vol", "B) Empêcher le démarrage de la machine tant que la porte est ouverte, ou arrêter la machine si on l'ouvre", "C) Éclairer l'intérieur de la machine"], "reponse": "B"},
+            {"question": "Qui est autorisé à utiliser une machine industrielle complexe ou dangereuse ?", "options": ["A) N'importe quel employé de passage", "B) Uniquement le personnel formé, qualifié et désigné par l'employeur", "C) Le personnel d'entretien des locaux"], "reponse": "B"},
+            {"question": "Qu'indique un voyant lumineux ROUGE fixe sur le panneau de contrôle d'une machine ?", "options": ["A) Que la machine fonctionne parfaitement en mode automatique", "B) Un défaut, une alarme ou un état de danger nécessitant une attention immédiate", "C) Que la machine est en veille"], "reponse": "B"},
+            {"question": "Quel EPI protège l'opérateur contre les projections de morceaux de matière ou d'étincelles au visage ?", "options": ["A) Un simple masque anti-poussière", "B) Des lunettes de protection à écrans latéraux ou un écran facial (visière)", "C) Des bouchons d'oreilles"], "reponse": "B"},
+            {"question": "La notice d'instructions d'une machine (manuel utilisateur) doit être :", "options": ["A) Rangée dans le bureau du directeur sous clé", "B) Accessible aux opérateurs et aux équipes de maintenance à proximité de la machine", "C) Jetée après l'installation de la machine"], "reponse": "B"},
+            {"question": "Que devez-vous vérifier sur le bouton d'arrêt d'urgence avant de démarrer une machine ?", "options": ["A) S'il est bien propre", "B) Qu'il est déverrouillé et pleinement fonctionnel", "C) Sa date de fabrication"], "reponse": "B"},
+            {"question": "Qu'est-ce qu'une zone dangereuse sur une machine ?", "options": ["A) La zone où l'on stocke les produits finis", "B) Tout espace à l'intérieur ou autour de la machine où une personne est exposée à un risque de lésion", "C) Le sol autour de la machine"], "reponse": "B"},
+            {"question": "Que doit faire un opérateur s'il constate qu'une grille de protection s'est desserrée ?", "options": ["A) Mettre du scotch et continuer à produire", "B) Stopper le travail, resserrer la grille si autorisé ou alerter la maintenance avant toute réutilisation", "C) Attendre l'accident pour le signaler"], "reponse": "B"},
+            {"question": "Le port de gants de protection est-il recommandé pour travailler sur un tour traditionnel en rotation ?", "options": ["A) Oui, pour ne pas se salir les mains", "B) Non, il est souvent interdit car les mailles du gant peuvent s'accrocher et entraîner la main dans la zone de rotation", "C) Uniquement les gants en laine"], "reponse": "B"},
+            {"question": "À quelle fréquence l'opérateur doit-il nettoyer son poste de travail et sa machine ?", "options": ["A) Une fois par an", "B) Régulièrement, au minimum à la fin de chaque poste (poste propre = poste sûr)", "C) Uniquement quand la machine tombe en panne"], "reponse": "B"}
+        ]
+    }
+})
