@@ -77,10 +77,10 @@ def lancer_bot():
     print(f"SCORE GLOBAL FINAL : {score_global_total} / {questions_global_total} ({pourcentage}%)")
     
     # Mention de réussite
-    if pourcentage >= 80:
+    if pourcentage >= 75:
         print("RÉSULTAT : [FÉLICITATIONS] Certification HSE validée avec succès !")
     else:
-        print("RÉSULTAT : [ÉCHEC] Score insuffisant. Un score de 80% est requis pour la validation.")
+        print("RÉSULTAT : [ÉCHEC] Score insuffisant. Un score de 75% est requis pour la validation.")
     print("==================================================")
 
 if __name__ == "__main__":
