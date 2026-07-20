@@ -72,10 +72,14 @@
 
     let moduleActuel = "";
 
-    function connecter() {
-        document.getElementById('ecran-connexion').classList.add('hidden');
+      function connecter() {
+        // Cette ligne va masquer totalement la boîte de connexion
+        document.getElementById('ecran-connexion').style.display = 'none';
+        
+        // Cette ligne affiche proprement le tableau de bord au centre
         document.getElementById('ecran-modules').classList.remove('hidden');
     }
+
 
     function ouvrirModule(nomModule) {
         moduleActuel = nomModule;
