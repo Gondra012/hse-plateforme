@@ -253,41 +253,76 @@ function sauvegarderFinModuleBDD() {
     };
 }
 
+// CORRECTION DÉFINITIVE ET SÉCURISÉE DU BOUTON PDF (MOTEUR DOUBLE COMPATIBILITÉ)
 function genererAttestationPDF() {
-    // Appel sécurisé à la bibliothèque globale jsPDF chargée par index.html
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ orientation: "landscape" });
+    try {
+        // Tentative 1 : Utilisation de la bibliothèque jsPDF
+        if (window.jspdf && window.jspdf.jsPDF) {
+            const doc = new window.jspdf.jsPDF({ orientation: "landscape" });
 
-    // Bordures graphiques d'authentification
-    doc.setDrawColor(16, 185, 129); doc.setLineWidth(4); doc.rect(10, 10, 277, 190);
-    doc.setDrawColor(59, 130, 246); doc.setLineWidth(1); doc.rect(14, 14, 269, 182);
+            doc.setDrawColor(16, 185, 129); doc.setLineWidth(4); doc.rect(10, 10, 277, 190);
+            doc.setDrawColor(59, 130, 246); doc.setLineWidth(1); doc.rect(14, 14, 269, 182);
 
-    // Titres principaux du diplôme
-    doc.setFont("Helvetica", "bold"); doc.setFontSize(28); doc.setTextColor(30, 41, 59);
-    doc.text("ATTESTATION DE RÉUSSITE HSE", 148, 45, { align: "center" });
+            doc.setFont("Helvetica", "bold"); doc.setFontSize(28); doc.setTextColor(30, 41, 59);
+            doc.text("ATTESTATION DE RÉUSSITE HSE", 148, 45, { align: "center" });
 
-    doc.setFont("Helvetica", "normal"); doc.setFontSize(16); doc.setTextColor(100, 116, 139);
-    doc.text("Le centre de formation certifie que l'apprenant :", 148, 70, { align: "center" });
+            doc.setFont("Helvetica", "normal"); doc.setFontSize(16); doc.setTextColor(100, 116, 139);
+            doc.text("Le centre de formation certifie que l'apprenant :", 148, 70, { align: "center" });
 
-    // Identité de l'étudiant
-    doc.setFont("Helvetica", "bold"); doc.setFontSize(24); doc.setTextColor(16, 185, 129);
-    doc.text(etudiantActuel.toUpperCase(), 148, 90, { align: "center" });
+            doc.setFont("Helvetica", "bold"); doc.setFontSize(24); doc.setTextColor(16, 185, 129);
+            doc.text(etudiantActuel.toUpperCase(), 148, 90, { align: "center" });
 
-    // validation du module
-    doc.setFont("Helvetica", "normal"); doc.setFontSize(14); doc.setTextColor(51, 65, 85);
-    doc.text(`A validé avec succès les compétences professionnelles liées au module :`, 148, 115, { align: "center" });
-    doc.setFont("Helvetica", "bold"); doc.setFontSize(16); doc.text(`"${moduleEnCours}"`, 148, 128, { align: "center" });
+            doc.setFont("Helvetica", "normal"); doc.setFontSize(14); doc.setTextColor(51, 65, 85);
+            doc.text(`A validé avec succès les compétences professionnelles liées au module :`, 148, 115, { align: "center" });
+            doc.setFont("Helvetica", "bold"); doc.setFontSize(16); doc.text(`"${moduleEnCours}"`, 148, 128, { align: "center" });
 
-    // Note finale obtenue
-    doc.setFont("Helvetica", "normal"); doc.setFontSize(14);
-    const totalQ = BDD_FORMATION[moduleEnCours].questions.length;
-    const pct = Math.round((scoreInteractif / totalQ) * 100);
-    doc.text(`Note obtenue : ${scoreInteractif} / ${totalQ}  (${pct}% de bonnes réponses)`, 148, 145, { align: "center" });
+            const totalQ = BDD_FORMATION[moduleEnCours].questions.length;
+            const pct = Math.round((scoreInteractif / totalQ) * 100);
+            doc.text(`Note obtenue : ${scoreInteractif} / ${totalQ}  (${pct}% de bonnes réponses)`, 148, 145, { align: "center" });
 
-    // Horodatage et validation d'authenticité de la BDD locale
-    doc.setFontSize(11); doc.setTextColor(148, 163, 184);
-    doc.text(`Fait le ${new Date().toLocaleDateString()} - Document officiel encodé et vérifié en BDD locale`, 148, 175, { align: "center" });
+            doc.setFontSize(11); doc.setTextColor(148, 163, 184);
+            doc.text(`Fait le ${new Date().toLocaleDateString()} - Document officiel encodé et vérifié en BDD locale`, 148, 175, { align: "center" });
 
-    // Déclenchement du téléchargement du fichier PDF
-    doc.save(`Attestation_HSE_${etudiantActuel.replace(/ /g, "_")}.pdf`);
+            doc.save(`Attestation_HSE_${etudiantActuel.replace(/ /g, "_")}.pdf`);
+            return;
+        }
+    } catch (e) {
+        console.log("Moteur principal indisponible, bascule sur le moteur de secours...");
+    }
+
+    // Tentative 2 : Moteur de secours universel (Ouvre une fenêtre d'impression PDF native et propre)
+    const fenetreImpression = window.open('', '_blank');
+    fenetreImpression.document.write(`
+        <html>
+        <head>
+            <title>Attestation HSE - ${etudiantActuel}</title>
+            <style>
+                body { font-family: 'Helvetica', sans-serif; display: flex; justify-content: center; align-items: center; height: 90vh; margin: 0; background-color: #fff; }
+                .cadre { border: 10px double #10b981; padding: 50px; text-align: center; width: 800px; max-width: 90%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+                h1 { color: #1e293b; font-size: 32px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+                .sous-titre { color: #64748b; font-size: 18px; margin-bottom: 30px; }
+                .nom { color: #10b981; font-size: 28px; font-weight: bold; margin-bottom: 30px; text-decoration: underline; }
+                .texte { color: #334155; font-size: 16px; line-height: 1.6; margin-bottom: 40px; }
+                .date { color: #94a3b8; font-size: 12px; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 15px; }
+            </style>
+        </head>
+        <body>
+            <div class="cadre">
+                <h1>Attestation de Réussite HSE</h1>
+                <div class="sous-titre">Le centre de formation en ligne certifie que l'apprenant :</div>
+                <div class="nom">${etudiantActuel.toUpperCase()}</div>
+                <div class="texte">
+                    A validé avec succès l'ensemble des compétences théoriques et pratiques liées au module de formation professionnelle : <br>
+                    <strong>"${moduleEnCours}"</strong><br><br>
+                    Note globale enregistrée en BDD : <strong>${scoreInteractif} / ${BDD_FORMATION[moduleEnCours].questions.length}</strong>
+                </div>
+                <div class="date">Fait le ${new Date().toLocaleDateString()} - Document officiel certifié conforme</div>
+            </div>
+            <script>
+                window.onload = function() { window.print(); window.close(); }
+            <\/script>
+        </body>
+        </html>
+    `);
+    fenetreImpression.document.close();
 }
