@@ -230,3 +230,41 @@ FORMATION_DATA.update({
         ]
     }
 })
+# Ajout du Module 7 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 7: Conduite Défensive": {
+        "cours": (
+            "--- MODULE 7 : CONDUITE DÉFENSIVE ---\n"
+            "La conduite défensive est une attitude de sécurité au volant visant à anticiper les situations\n"
+            "dangereuses malgré les conditions défavorables ou les erreurs des autres usagers.\n"
+            "Règles clés :\n"
+            "1. L'anticipation : observer loin devant pour détecter les comportements à risque des piétons et véhicules.\n"
+            "2. Les distances de sécurité : respecter la règle des 2 secondes d'écart avec le véhicule qui précède.\n"
+            "3. L'adaptation de la vitesse : adapter l'allure en fonction de la météo (pluie, brouillard) et de la visibilité.\n"
+            "4. Le zéro distraction : l'usage du téléphone portable (même mains libres) réduit drastiquement la vigilance.\n"
+            "5. L'état du véhicule : réaliser les vérifications quotidiennes de sécurité (freins, pneus, feux, niveaux)."
+        ),
+        "questions": [
+            {"question": "Qu'est-ce que la conduite défensive ?", "options": ["A) Une technique pour conduire de manière agressive", "B) Une conduite basée sur l'anticipation des dangers et les erreurs des autres pour éviter l'accident", "C) Une méthode pour rouler le plus vite possible"], "reponse": "B"},
+            {"question": "Quelle est la distance de sécurité minimale (en temps) à maintenir avec le véhicule devant soi par temps sec ?", "options": ["A) 0,5 seconde", "B) 2 secondes", "C) 5 secondes"], "reponse": "B"},
+            {"question": "Comment doit évoluer la distance de sécurité si la chaussée est mouillée ou s'il pleut ?", "options": ["A) Elle doit rester identique", "B) Elle doit être doublée (passer à 4 secondes minimum)", "C) Elle peut être réduite"], "reponse": "B"},
+            {"question": "Qu'est-ce que le 'temps de réaction' moyen d'un conducteur vigilant ?", "options": ["A) Environ 0,1 seconde", "B) Environ 1 seconde", "C) Environ 3 secondes"], "reponse": "B"},
+            {"question": "Quel effet a l'alcool ou la fatigue sur le temps de réaction ?", "options": ["A) Il diminue le temps de réaction", "B) Il augmente le temps de réaction (le conducteur met plus de temps à freiner)", "C) Il n'a aucun impact"], "reponse": "B"},
+            {"question": "L'utilisation du téléphone au volant (tenu en main) multiplie le risque d'accident par :", "options": ["A) 1,5", "B) 3", "C) 10"], "reponse": "B"},
+            {"question": "Qu'est-ce que l'aquaplaning (ou aquaplanage) ?", "options": ["A) Un lavage automatique du véhicule", "B) La perte d'adhérence des pneus qui glissent sur une couche d'eau sans toucher le sol", "C) Une technique de freinage d'urgence"], "reponse": "B"},
+            {"question": "Quelle est la première action à mener en cas d'aquaplaning ?", "options": ["A) Piler sur le frein immédiatement", "B) Relâcher doucement l'accélérateur et maintenir le volant droit sans freiner brusquement", "C) Tourner le volant rapidement"], "reponse": "B"},
+            {"question": "Qu'appelle-t-on les 'angles morts' d'un véhicule ?", "options": ["A) Les zones situées directement sous les roues", "B) Les zones invisibles dans les rétroviseurs que le conducteur ne peut voir sans tourner la tête", "C) Les phares qui ne fonctionnent plus"], "reponse": "B"},
+            {"question": "Avant de changer de voie ou de tourner, quelle est la bonne séquence d'actions ?", "options": ["A) Tourner le volant puis mettre le clignotant", "B) Rétroviseur, contrôle de l'angle mort, clignotant, puis manœuvre", "C) Klaxonner et tourner"], "reponse": "B"},
+            {"question": "Quelle est la règle concernant le port de la ceinture de sécurité ?", "options": ["A) Obligatoire uniquement à l'avant", "B) Obligatoire pour tous les occupants du véhicule (avant et arrière) et sur tous les trajets", "C) Facultative en ville"], "reponse": "B"},
+            {"question": "En conduite défensive, que faire si un véhicule vous colle de très près par derrière ?", "options": ["A) Freiner brusquement pour lui faire peur", "B) Augmenter votre propre distance de sécurité avec le véhicule devant vous pour éviter lesfreinages secs", "C) Accélérer au-delà des limites de vitesse"], "reponse": "B"},
+            {"question": "En cas de fatigue au volant (premiers bâillements, yeux lourds), quelle est la seule solution efficace ?", "options": ["A) Ouvrir la fenêtre ou monter le son de la radio", "B) S'arrêter sur une zone sécurisée pour faire une pause d'au moins 15 à 20 minutes", "C) Boire un café fort en continuant de rouler"], "reponse": "B"},
+            {"question": "La distance d'arrêt totale d'un véhicule est égale à :", "options": ["A) La distance de freinage uniquement", "B) La distance parcourue pendant le temps de réaction + la distance de freinage", "C) La longueur du véhicule"], "reponse": "B"},
+            {"question": "Si la vitesse d'un véhicule est doublée (ex: passage de 50 km/h à 100 km/h), la distance de freinage est :", "options": ["A) Doublée", "B) Multipliée par 4", "C) Reste inchangée"], "reponse": "B"},
+            {"question": "Quelle est la profondeur minimale légale de la bande de roulement des pneus d'une voiture particulière ?", "options": ["A) 0,5 mm", "B) 1,6 mm", "C) 3,0 mm"], "reponse": "B"},
+            {"question": "Que devez-vous faire à l'approche d'un embranchement si vous n'êtes pas sûr de votre direction ?", "options": ["A) S'arrêter au milieu des voies pour réfléchir", "B) Ralentir à l'avance, rester sur la voie la plus sûre et continuer si la manœuvre devient dangereuse", "C) Reculer si vous avez raté la sortie"], "reponse": "B"},
+            {"question": "Qu'indique une baisse soudaine de la pression d'un pneu lors des contrôles ?", "options": ["A) Une usure normale", "B) Une crevaison lente potentielle ou une anomalie à vérifier immédiatement", "C) Que le pneu a trop chaud"], "reponse": "B"},
+            {"question": "En cas de visibilité inférieure à 50 mètres à cause d'un brouillard dense, la vitesse maximale autorisée est de :", "options": ["A) 30 km/h", "B) 50 km/h", "C) 80 km/h"], "reponse": "B"},
+            {"question": "Quel comportement adopter face à un conducteur manifestement agressif sur la route ?", "options": ["A) Lui répondre par des gestes ou des coups de klaxon", "B) Rester calme, ne pas le regarder et le laisser passer pour s'en éloigner", "C) Bloquer sa trajectoire pour lui donner une leçon"], "reponse": "B"}
+        ]
+    }
+})
