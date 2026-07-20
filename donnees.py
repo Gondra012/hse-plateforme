@@ -154,3 +154,41 @@ FORMATION_DATA.update({
         ]
     }
 })
+# Ajout du Module 5 au dictionnaire existant
+FORMATION_DATA.update({
+    "Module 5: Assemblage au Mât": {
+        "cours": (
+            "--- MODULE 5 : ASSEMBLAGE AU MÂT ---\n"
+            "L'assemblage de structures sur pylônes ou mâts présente des risques cumulés de chutes de grande hauteur,\n"
+            "de manutention lourde en suspension et de chute d'objets. La coordination des équipes au sol\n"
+            "et en hauteur est indispensable.\n"
+            "Règles clés :\n"
+            "1. Le balisage d'une zone d'exclusion au sol (zone d'impact) est obligatoire sous le mât.\n"
+            "2. Tous les outils utilisés en hauteur doivent être impérativement imperdables (liés par une dragonne).\n"
+            "3. L'utilisation d'une ligne de vie ou d'un système de double longe d'échafaudage est requise pour la montée.\n"
+            "4. Le serrage et l'assemblage des éléments doivent respecter les procédures du constructeur pour éviter l'effondrement."
+        ),
+        "questions": [
+            {"question": "Quel est le risque majeur spécifique lors du montage d'un mât en sections ?", "options": ["A) Le bruit du vent", "B) L'effondrement de la structure ou la chute d'éléments lourds en cours d'assemblage", "C) La surchauffe des outils"], "reponse": "B"},
+            {"question": "Quelle mesure de sécurité est obligatoire au sol au droit d'un mât en cours de montage ?", "options": ["A) Installer une bâche anti-poussière", "B) Mettre en place une zone d'exclusion balisée pour interdire l'accès sous les charges", "C) Garer les véhicules de chantier"], "reponse": "B"},
+            {"question": "Comment sécuriser une clé à choc ou un outil à main utilisé en haut du mât ?", "options": ["A) En le tenant très fort avec les deux mains", "B) En l'attachant à une dragonne ou une lanière reliée au harnais ou à la structure", "C) En le mettant dans sa poche ouverte"], "reponse": "B"},
+            {"question": "Lors de l'ascension d'un mât sur une échelle fixe sans crinoline, quel système utilise-t-on ?", "options": ["A) Une simple corde de maçon", "B) Un antichute guidé sur rail ou câble rigide (ligne de vie verticale)", "C) Aucun système si on monte doucement"], "reponse": "B"},
+            {"question": "Quelle est la règle d'or lors du déplacement sur la structure du mât avec une double longe ?", "options": ["A) Déconnecter les deux connecteurs pour aller plus vite", "B) Toujours garder au moins un des deux mousquetons ancré à la structure (connexion continue)", "C) Attacher les deux mousquetons sur son propre harnais"], "reponse": "B"},
+            {"question": "Quelle est l'utilité d'un couple de serrage précis (clé dynamométrique) lors de l'assemblage d'un mât ?", "options": ["A) Faire gagner du temps", "B) Garantir la solidité mécanique de la structure face aux vibrations et au vent", "C) Rendre les boulons plus jolis"], "reponse": "B"},
+            {"question": "En cas de détection d'une fissure sur une bride d'assemblage d'un mât, que faut-il faire ?", "options": ["A) Continuer le montage et mettre de la peinture", "B) Stopper immédiatement l'assemblage et remplacer la pièce défectueuse", "C) Serrer le boulon plus fort"], "reponse": "B"},
+            {"question": "Quel équipement permet de lever les sections du mât depuis le sol de manière contrôlée ?", "options": ["A) Une cordelette simple tirée à la main", "B) Un treuil de levage ou une grue avec des élingues certifiées", "C) Une échelle"], "reponse": "B"},
+            {"question": "Quel type de casque est recommandé pour les opérateurs travaillant sur un mât ?", "options": ["A) Un casque de chantier classique sans jugulaire", "B) Un casque type alpiniste avec jugulaire résistante pour ne pas le perdre la tête en arrière", "C) Une casquette renforcée"], "reponse": "B"},
+            {"question": "Quelle condition météorologique impose l'arrêt immédiat des travaux sur un mât ?", "options": ["A) Un grand soleil", "B) Des vents violents ou un risque d'orage/foudre", "C) Une température de 20°C"], "reponse": "B"},
+            {"question": "Que signifie l'expression 'travailler en tension' pour une structure haubanée ?", "options": ["A) Travailler sous l'effet du stress", "B) Régler la tension correcte des câbles de maintien (haubans) pour stabiliser le mât", "C) Utiliser des outils électriques"], "reponse": "B"},
+            {"question": "Pourquoi le port de chaussures de sécurité avec un profil de semelle antidérapant est-il vital sur un mât ?", "options": ["A) Pour ne pas salir la structure", "B) Pour éviter les glissades sur les barreaux ou les surfaces métalliques humides", "C) Pour marcher plus vite au sol"], "reponse": "B"},
+            {"question": "Lors du levage d'une section de mât, qui dirige la manœuvre ?", "options": ["A) Tout le monde en même temps en criant", "B) Un chef de manœuvre unique (chef d'équipe ou guide de grue) par signaux ou radio", "C) Le conducteur de la grue tout seul sans regarder"], "reponse": "B"},
+            {"question": "À quoi sert une 'broche de centrage' lors de l'alignement de deux sections de mât ?", "options": ["A) À visser les écrous", "B) À aligner les trous des boulons en sécurité avant de mettre les fixations définitives", "C) À mesurer la hauteur"], "reponse": "B"},
+            {"question": "Peut-on stocker des boulons en vrac sur une plateforme non sécurisée en haut du mât ?", "options": ["A) Oui, si on fait attention", "B) Non, ils doivent être placés dans des sacs à outils ou sacoches fermées et attachées", "C) Uniquement les petits boulons"], "reponse": "B"},
+            {"question": "Qu'est-ce qu'un hauban sur un mât ?", "options": ["A) Un outil de serrage", "B) Un câble d'ancrage en acier destiné à stabiliser la structure verticale face au vent", "C) Une échelle de secours"], "reponse": "B"},
+            {"question": "Quelle vérification doit être faite sur les boulons d'ancrage de la base du mât (fondation) ?", "options": ["A) Vérifier s'ils sont bien peints", "B) S'assurer de leur serrage au couple et de l'absence de corrosion ou de jeu", "C) Les recouvrir de terre"], "reponse": "B"},
+            {"question": "Lors d'un travail sur un mât de télécommunication, quel risque invisible s'ajoute à la chute ?", "options": ["A) Le risque d'exposition aux rayonnements électromagnétiques (ondes des antennes)", "B) Le risque d'asphyxie", "C) Le risque d'inondation"], "reponse": "A"},
+            {"question": "Quelle est la règle concernant le port du harnais lors de l'utilisation d'une nacelle élévatrice pour monter sur un mât ?", "options": ["A) Le harnais est inutile car la nacelle a des garde-corps", "B) Le harnais est obligatoire et doit être attaché au point d'ancrage prévu dans la nacelle", "C) On peut l'attacher directement sur le mât"], "reponse": "B"},
+            {"question": "Qui doit vérifier la conformité du matériel de levage utilisé pour l'assemblage du mât ?", "options": ["A) Le client à la fin des travaux", "B) Une personne compétente ou un organisme agréé (vérification périodique à jour)", "C) Le fabricant uniquement à la vente"], "reponse": "B"}
+        ]
+    }
+})
